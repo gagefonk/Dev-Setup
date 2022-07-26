@@ -39,4 +39,4 @@ brew install --cask font-hack-nerd-font
 
 # Download the config .dotfiles from git
 #tmux
-cd ~/.config/tmux && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > tmux.conf }
+cd ~/.config/tmux/ && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > tmux.conf }
