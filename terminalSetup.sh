@@ -27,7 +27,9 @@ brew install zsh-autosuggestions
 #zsh syntax highlighting
 brew install zsh-syntax-highlighting
 #pull ohmyzsh config file
+echo "pulling ohmyzsh config file"
 cd ~/ && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > .zshrc }
+echo "pulling p10k config file"
 #pull p10k config file
 cd ~/ && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > .p10k.zsh }
 
@@ -38,5 +40,5 @@ brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
 
 # Download the config .dotfiles from git
-#tmux
+echo "pulling tmux config file"
 cd ~/.config/tmux/ && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > tmux.conf }
