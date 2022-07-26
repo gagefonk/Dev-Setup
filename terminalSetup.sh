@@ -43,6 +43,6 @@ brew install --cask font-hack-nerd-font
 echo "pulling tmux config file"
 curl -o ~/.tmux.conf https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf
 
-# se zsh source file?
+# set zsh source file?
 zsh
 source ~/.zshrc
