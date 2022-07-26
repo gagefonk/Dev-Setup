@@ -27,9 +27,9 @@ brew install zsh-autosuggestions
 #zsh syntax highlighting
 brew install zsh-syntax-highlighting
 #pull ohmyzsh config file
-cd ~/ && { curl -O  }
+cd ~/ && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > .zshrc }
 #pull p10k config file
-cd ~/ && { curl -O https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh }
+cd ~/ && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > .p10k.zsh }
 
 #neovim
 brew install neovim
@@ -39,5 +39,7 @@ brew install --cask font-hack-nerd-font
 
 # Download the config .dotfiles from git
 #tmux
-cd ~/.config/tmux && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > tmux.conf; cd -; }
+cd ~/.config/tmux && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > tmux.conf }
 
+#restart the session
+exec zsh
