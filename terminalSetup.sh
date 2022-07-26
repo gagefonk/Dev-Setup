@@ -14,23 +14,30 @@ chmod -R go-w "$(brew --prefix)/share/zsh"
 
 #iterm2
 brew install --cask iterm2
+#ohmyzsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#powerlevel10k theme for ohmyzsh
+brew install romkatv/powerlevel10k/powerlevel10k
+echo "source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+
+####plugins
+
+#zsh-autocompletions
+brew install zsh-autosuggestions
+#zsh syntax highlighting
+brew install zsh-syntax-highlighting
+#pull ohmyzsh config file
+cd ~/ && { curl -O  }
+#pull p10k config file
+cd ~/ && { curl -O https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh }
+
 #neovim
 brew install neovim
-#fish shell
-brew install fish
-#fish package manager
-brew install fisher
-#nerd font for fish (HACK)
+#nerd font hack
 brew tap homebrew/cask-fonts
 brew install --cask font-hack-nerd-font
-#tide theme for fisher
-fish <<'END_FISH'
-	fisher install IlanCosman/tide@v5
-END_FISH
 
 # Download the config .dotfiles from git
 #tmux
 cd ~/.config/tmux && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > tmux.conf; cd -; }
-#fish
-cd ~/.config/fish && { curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/config.fish > config.fish; cd -; }
 
