@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 ### VARIABLES
 needsBrewUpdate=false
@@ -16,10 +17,11 @@ mkdir -p ~/.config
 # Install Homebrew
 installHomebrew()
 {
-git clone https://github.com/Homebrew/brew /opt/homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
-brew update --force --quiet
-chmod -R go-w "$(brew --prefix)/share/zsh"
+#git clone https://github.com/Homebrew/brew /opt/homebrew
+#eval "$(/opt/homebrew/bin/brew shellenv)"
+#brew update --force --quiet
+#chmod -R go-w "$(brew --prefix)/share/zsh"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 # Homebrew Updates
