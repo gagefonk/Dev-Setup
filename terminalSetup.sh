@@ -17,7 +17,13 @@ eval $(/opt/homebrew/bin/brew shellenv)
 
 # Install OHMYZSH - Silently
 echo "Installing OHMYZSH..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+if [ d- ~/.oh-my-zsh ]; then
+# update it
+omz update
+else
+# install it
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+fi
 
 # Install Packages
 PACKAGES=(
