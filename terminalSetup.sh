@@ -16,12 +16,9 @@ echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/$USER/.zprofile
 eval $(/opt/homebrew/bin/brew shellenv)
 
 # Install OHMYZSH - Silently
+if [ ! d- ~/.oh-my-zsh ]; then
 echo "Installing OHMYZSH..."
 if [ d- ~/.oh-my-zsh ]; then
-# update it
-omz update
-else
-# install it
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
