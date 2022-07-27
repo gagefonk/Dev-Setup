@@ -56,8 +56,8 @@ brew install --cask ${FONTS[@]}
 
 # Config files
 echo "Installing configuration files..."
-curl -o ~/.tmux.conf https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf
-curl -o ~/.p10k.zsh https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh
-curl -o ~/.zshrc https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc
+curl ~/.tmux.conf https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.tmux.conf
+curl ~/.p10k.zsh https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.p10k.zsh
+curl ~/.zshrc https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
 
 exit 0
