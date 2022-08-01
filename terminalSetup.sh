@@ -61,5 +61,5 @@ echo "Installing configuration files..."
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.tmux.conf
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.p10k.zsh
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
-curl -O https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | \
+curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | \
   tar -xz --strip=2 Dev-Setup-master/.config/nvim --output ~/.config/
