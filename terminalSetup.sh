@@ -57,6 +57,13 @@ font-hack-nerd-font
 brew tap homebrew/cask-fonts
 brew install --cask ${FONTS[@]}
 
+# Install Packer
+# LUA plugin manager for VIM
+if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
+  echo "Installing Packer..."
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim\~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
+
 # Config files
 echo "Installing configuration files..."
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.tmux.conf
