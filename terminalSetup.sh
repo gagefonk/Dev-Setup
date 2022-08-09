@@ -4,7 +4,7 @@ set -e
 ##################################### Machine Setup ###############################################
 ###################################################################################################
 
-echo "Begging Machine Setup"
+echo "Begining Machine Setup"
 
 # Create Config Directory
 mkdir -p ~/.config
