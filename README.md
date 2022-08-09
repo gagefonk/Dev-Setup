@@ -8,4 +8,9 @@ bash <( curl -s https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/term
 
 Change iterm font to HACK and theme to solarized dark
 
+Open Vim and run this commands:
+```
+:PackerInstall
+```
+
 A lot of this was taken/replicated from [@craftzdog](https://github.com/craftzdog)
