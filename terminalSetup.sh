@@ -47,6 +47,8 @@ brew cleanup
 # Install Casks
 CASKS=(
 iterm2
+rectangle
+visual-studio-code
 )
 
 echo "Installing casks..."
