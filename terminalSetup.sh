@@ -113,13 +113,10 @@ fi
 
 # Config files
 echo "Installing configuration files..."
-#curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.tmux.conf
-#curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.p10k.zsh
-#curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
-#curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz --strip-components=2 Dev-Setup-master/.config/ -C ~/.config
 
 # Create SymLinks
+echo "Creating Symlinks"
 ln -s ~/.tmux.conf ~/.config/dotfiles/tmux.conf
 ln -s ~/.p10k.zsh ~/.config/dotfiles/.p10k.zsh
 ln -s ~/.zshrc ~/.config/dotfiles/.zshrc
