@@ -8,20 +8,24 @@ set -e
 # PW PROMPT
 sudo -v
 
-echo "Begining Machine Setup"
+echo "Begining Machine Setup..."
 
 # CONFIG DIRECTORIES
-echo "Creating Directories"
+echo "Creating Directories..."
 mkdir -p ~/.config/nvim
 
 # CONFIG FILES
-echo "Creating placeholder configfiles for symlinks"
+echo "Creating placeholder configfiles for symlinks..."
 if [ ! -f ~/tmux.conf ]; then
     touch ~/tmux.conf
+else
+    echo "tmux.conf already exists."
 fi
 
 if [ ! -f ~/.p10k.zsh ]; then
     touch ~/.p10k.zsh
+else
+    echo ".p10k.zsh already exists."
 fi
 
 # HOMEBREW
@@ -39,11 +43,15 @@ fi
 if [ ! -d ~/.oh-my-zsh ]; then
   echo "Installing OHMYZSH..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+    echo "OHMYZSH already installed."
 fi
 
 # P10k THEME
 if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+else
+    echo "P10k theme already installed."
 fi
 
 # PACKAGES
