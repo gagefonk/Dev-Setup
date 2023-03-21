@@ -105,12 +105,22 @@ if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
 fi
 
 # Config files
-echo "Installing configuration files..."
+
 #curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.tmux.conf
 #curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.p10k.zsh
 #curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
 #curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
-curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz --strip-components=2 Dev-Setup-master/.config/ -C ~/.config
+#curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz --strip-components=2 Dev-Setup-master/.config/ -C ~/.config
+
+#Download the Dev-Setup repository and extract it
+echo "Installing configuration files..."
+curl -fsSL https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz --strip-components=2 -C ~/Dev-Setup/.config/ Dev-Setup-master/.config
+
+# Move the contents of the .config folder to ~/.config
+mv ~/Dev-Setup/.config/* ~/.config/
+
+# Remove the temporary Dev-Setup folder
+rm -rf ~/Dev-Setup
 
 # Create SymLinks
 ln -s ~/.tmux.conf ~/.config/dotfiles/tmux.conf
