@@ -117,7 +117,8 @@ curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~
 
 # Create SymLinks
 echo "Creating Symlinks"
-ln -s ~/tmux.conf ~/.config/dotfiles/tmux.conf
+#tmux symlink is failing, will come back to this later
+#ln -s ~/tmux.conf ~/.config/dotfiles/tmux.conf
 ln -s ~/.p10k.zsh ~/.config/dotfiles/.p10k.zsh
 ln -s ~/.zshrc ~/.config/dotfiles/.zshrc
 
