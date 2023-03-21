@@ -54,9 +54,6 @@ do
   fi
 done
 
-echo "Cleaning up..."
-brew cleanup
-
 # Install Casks
 CASKS=(
 iterm2
@@ -67,7 +64,17 @@ discord
 )
 
 echo "Installing casks..."
-brew install --cask ${CASKS[@]}
+for cask in "${casks[@]}"
+do
+  # Check if the cask is already installed
+  if brew cask list "$cask" >/dev/null 2>&1; then
+    echo "$cask already installed."
+  else
+    # Install the cask
+    echo "Installing $cask..."
+    brew install --cask "$cask"
+  fi
+done
 
 # Install Fonts
 FONTS=(
@@ -75,7 +82,20 @@ font-hack-nerd-font
 )
 
 brew tap homebrew/cask-fonts
-brew install --cask ${FONTS[@]}
+for font in "${fonts[@]}"
+do
+  # Check if the cask is already installed
+  if brew cask list "$cask" >/dev/null 2>&1; then
+    echo "$cask already installed."
+  else
+    # Install the cask
+    echo "Installing $cask..."
+    brew install --cask "$cask"
+  fi
+done
+
+echo "Cleaning up..."
+brew cleanup
 
 # Install Packer
 # LUA plugin manager for VIM
