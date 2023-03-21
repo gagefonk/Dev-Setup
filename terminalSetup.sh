@@ -124,7 +124,7 @@ ln -sf ~/.zshrc ~/.config/dotfiles/.zshrc
 
 # Install packer plugins
 echo "Installing Packer Plugins"
-nvim +PackerInstall
+nvim +:PackerInstall
 
 # Launch iTerm2
 #open -a iTerm
