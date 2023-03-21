@@ -13,11 +13,16 @@ echo "Begining Machine Setup"
 # Create Config Directories
 mkdir -p ~/.config/nvim
 
-# Install Homebrew
-echo "Installing Homebrew"
-echo "$USER_PASSWORD" | NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/$USER/.zprofile
-eval $(/opt/homebrew/bin/brew shellenv)
+# Install Homebrew - Silently
+if ! command -v brew &> /dev/null
+then
+    echo "Installing Homebrew"
+    echo "$USER_PASSWORD" | NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/$USER/.zprofile
+    eval $(/opt/homebrew/bin/brew shellenv)
+else
+    echo "Homebrew is already installed."
+fi
 
 # Install OHMYZSH - Silently
 if [ ! -d ~/.oh-my-zsh ]; then
@@ -89,7 +94,7 @@ do
     echo "$font already installed."
   else
     # Install the cask
-    echo "Installing $cask..."
+    echo "Installing $font..."
     brew install --cask "$font"
   fi
 done
@@ -105,22 +110,12 @@ if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
 fi
 
 # Config files
-
+echo "Installing configuration files..."
 #curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.tmux.conf
 #curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.p10k.zsh
 #curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
-#curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
+curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 #curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz --strip-components=2 Dev-Setup-master/.config/ -C ~/.config
-
-#Download the Dev-Setup repository and extract it
-echo "Installing configuration files..."
-curl -fsSL https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz --strip-components=2 -C ~/Dev-Setup/.config/ Dev-Setup-master/.config
-
-# Move the contents of the .config folder to ~/.config
-mv ~/Dev-Setup/.config/* ~/.config/
-
-# Remove the temporary Dev-Setup folder
-rm -rf ~/Dev-Setup
 
 # Create SymLinks
 ln -s ~/.tmux.conf ~/.config/dotfiles/tmux.conf
