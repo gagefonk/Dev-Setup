@@ -42,7 +42,17 @@ zsh-autosuggestions
 )
 
 echo "Installing packages..."
-brew install ${PACKAGES[@]}
+for package in "${packages[@]}"
+do
+  # Check if the package is already installed
+  if brew list "$package" >/dev/null 2>&1; then
+    echo "$package already installed."
+  else
+    # Install the package
+    echo "Installing $package..."
+    brew install "$package"
+  fi
+done
 
 echo "Cleaning up..."
 brew cleanup
