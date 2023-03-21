@@ -75,3 +75,6 @@ curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.p10k.zsh
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
+
+# Set default shell to ZSH
+chsh -s /usr/local/bin/zsh
