@@ -41,7 +41,7 @@ zsh-autosuggestions
 )
 
 echo "Installing packages..."
-for package in "${packages[@]}"
+for package in "${PACKAGES[@]}"
 do
   # Check if the package is already installed
   if brew list "$package" >/dev/null 2>&1; then
@@ -64,7 +64,7 @@ discord
 )
 
 echo "Installing casks..."
-for cask in "${casks[@]}"
+for cask in "${CAKS[@]}"
 do
   # Check if the cask is already installed
   if brew cask list "$cask" >/dev/null 2>&1; then
@@ -82,15 +82,15 @@ font-hack-nerd-font
 )
 
 brew tap homebrew/cask-fonts
-for font in "${fonts[@]}"
+for font in "${FONTS[@]}"
 do
   # Check if the cask is already installed
-  if brew cask list "$cask" >/dev/null 2>&1; then
-    echo "$cask already installed."
+  if brew cask list "$font" >/dev/null 2>&1; then
+    echo "$font already installed."
   else
     # Install the cask
     echo "Installing $cask..."
-    brew install --cask "$cask"
+    brew install --cask "$font"
   fi
 done
 
