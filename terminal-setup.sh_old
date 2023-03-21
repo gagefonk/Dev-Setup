@@ -29,6 +29,8 @@ fi
 PACKAGES=(
 git
 npm
+node
+typescript
 python
 python3
 tmux
