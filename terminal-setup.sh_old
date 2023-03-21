@@ -1,19 +1,16 @@
 #!/bin/bash/expect
 set -e
-###################################################################################################
-##################################### Machine Setup ###############################################
-###################################################################################################
+
+#################################################################################################################################################
+############################################################ Machine Setup ######################################################################
+#################################################################################################################################################
 
 # Prompt for PW
 sudo -v
 
-# Keep sudo credentials fresh while script is running
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
 echo "Begining Machine Setup"
 
-# Create Config Directory
-mkdir -p ~/.config
+# Create Config Directories
 mkdir -p ~/.config/nvim
 
 # Install Homebrew
@@ -56,6 +53,7 @@ done
 
 # Install Casks
 CASKS=(
+google-chrome
 iterm2
 rectangle
 visual-studio-code
@@ -113,18 +111,3 @@ curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~
 
 # Launch iTerm2
 open -a iTerm
-
-# Set default shell to Zsh in iTerm2
-/usr/bin/osascript <<EOF
-  tell application "iTerm"
-    activate
-    delay 0.5
-    set myterm to current terminal
-    tell myterm
-      set mysession to (launch session "Default Session")
-      tell mysession
-        write text "sudo chsh -s /bin/zsh"
-      end tell
-    end tell
-  end tell
-EOF
