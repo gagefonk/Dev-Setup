@@ -11,10 +11,22 @@ sudo -v
 echo "Begining Machine Setup"
 
 # Create Config Directories
+echo "Creating Directories"
 mkdir -p ~/.config/nvim
+
 # Create blank config files to for symlink later
-touch ~/tmux.conf
-touch ~/.p10k.zsh
+echo "Creating placeholder configfiles for symlinks"
+tmuxFile=~/tmux.conf
+if [ ! -f  $tmuxFile]
+then
+    touch $filename
+fi
+
+p10kFile=~/.p10k.zsh
+if [ ! -f  $p10kFile]
+then
+    touch $p10kFile
+fi
 
 # Install Homebrew - Silently
 if ! command -v brew &> /dev/null
