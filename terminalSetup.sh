@@ -7,6 +7,9 @@ set -e
 # Prompt for PW
 sudo -v
 
+# Keep sudo credentials fresh while script is running
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 echo "Begining Machine Setup"
 
 # Create Config Directory
