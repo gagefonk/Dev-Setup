@@ -5,16 +5,16 @@ set -e
 ############################################################ Machine Setup ######################################################################
 #################################################################################################################################################
 
-# Prompt for PW
+# PW PROMPT
 sudo -v
 
 echo "Begining Machine Setup"
 
-# Create Config Directories
+# CONFIG DIRECTORIES
 echo "Creating Directories"
 mkdir -p ~/.config/nvim
 
-# Create blank config files to for symlink later
+# CONFIG FILES
 echo "Creating placeholder configfiles for symlinks"
 if [ ! -f ~/tmux.conf ]; then
     touch ~/tmux.conf
@@ -24,7 +24,7 @@ if [ ! -f ~/.p10k.zsh ]; then
     touch ~/.p10k.zsh
 fi
 
-# Install Homebrew - Silently
+# HOMEBREW
 if ! command -v brew &> /dev/null
 then
     echo "Installing Homebrew"
@@ -35,16 +35,16 @@ else
     echo "Homebrew is already installed."
 fi
 
-# Install OHMYZSH - Silently
+# OHMYZSH
 if [ ! -d ~/.oh-my-zsh ]; then
   echo "Installing OHMYZSH..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# Install p10k theme
+# P10k THEME
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-# Install Packages
+# PACKAGES
 PACKAGES=(
 git
 npm
@@ -71,7 +71,7 @@ do
   fi
 done
 
-# Install Casks
+# CASKS
 CASKS=(
 google-chrome
 iterm2
@@ -94,7 +94,7 @@ do
   fi
 done
 
-# Install Fonts
+# FONTS
 FONTS=(
 font-hack-nerd-font
 )
@@ -115,27 +115,23 @@ done
 echo "Cleaning up..."
 brew cleanup
 
-# Install Packer
+# PACKER
 # LUA plugin manager for VIM
 if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
   echo "Installing Packer..."
   git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 fi
 
-# Config files
+# CONFIG FILES
 echo "Installing configuration files..."
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 
-# Create SymLinks
+# CSYMLINKS
 echo "Creating Symlinks"
 ln -sf ~/.config/dotfiles/tmux.conf ~/tmux.conf
 ln -sf ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
 ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
-# Install packer plugins
+# PACKER PLUGINS
 echo "Installing Packer Plugins"
 #nvim +:PackerInstall
-
-# Launch iTerm2
-#open -a iTerm
-echo "Finished setting up env"
