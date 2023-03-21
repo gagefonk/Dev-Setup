@@ -16,16 +16,12 @@ mkdir -p ~/.config/nvim
 
 # Create blank config files to for symlink later
 echo "Creating placeholder configfiles for symlinks"
-tmuxFile=~/tmux.conf
-if [ ! -f  $tmuxFile ] 
-then
-    touch $tmuxFile
+if [ ! -f ~/tmux.conf ]; then
+    touch ~/tmux.conf
 fi
 
-p10kFile=~/.p10k.zsh
-if [ ! -f  $p10kFile ] 
-then
-    touch $p10kFile
+if [ ! -f ~/.p10k.zsh ]; then
+    touch ~/.p10k.zsh
 fi
 
 # Install Homebrew - Silently
