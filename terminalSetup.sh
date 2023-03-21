@@ -33,6 +33,9 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
+# Install p10k theme
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 # Install Packages
 PACKAGES=(
 git
@@ -43,7 +46,6 @@ python
 python3
 tmux
 neovim
-romkatv/powerlevel10k/powerlevel10k
 zsh-syntax-highlighting
 zsh-autosuggestions
 )
@@ -124,7 +126,7 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
 # Install packer plugins
 echo "Installing Packer Plugins"
-nvim +:PackerInstall
+#nvim +:PackerInstall
 
 # Launch iTerm2
 #open -a iTerm
