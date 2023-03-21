@@ -92,7 +92,7 @@ brew tap homebrew/cask-fonts
 for font in "${FONTS[@]}"
 do
   # Check if the cask is already installed
-  if brew cask list "$font" >/dev/null 2>&1; then
+  if brew cask info "$font" >/dev/null 2>&1; then
     echo "$font already installed."
   else
     # Install the cask
