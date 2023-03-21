@@ -123,7 +123,7 @@ open -a iTerm
     tell myterm
       set mysession to (launch session "Default Session")
       tell mysession
-        write text "chsh -s /bin/zsh"
+        write text "sudo chsh -s /bin/zsh"
       end tell
     end tell
   end tell
