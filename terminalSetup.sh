@@ -112,6 +112,4 @@ curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zsh
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
 
 # Set default shell to ZSH
-chsh -s $(which zsh)
-expect "Password for gage:"
-send "$USER_PASSWORD\r"
+sudo chsh -s $(which zsh)
