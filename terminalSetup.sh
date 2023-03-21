@@ -112,4 +112,6 @@ curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zsh
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
 
 # Set default shell to ZSH
-echo "$USER_PASSWORD" | chsh -s $(which zsh)
+chsh -s $(which zsh)
+expect "Password"
+send "$USER_PASSWORD\r"
