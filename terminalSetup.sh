@@ -111,8 +111,20 @@ curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
 
-# Set default shell to ZSH
-sudo chsh -s $(which zsh)
+# Launch iTerm2
+open -a iTerm
 
-# Launch iterm and zsh
-open -a iTerm && zsh
+# Set default shell to Zsh in iTerm2
+/usr/bin/osascript <<EOF
+  tell application "iTerm"
+    activate
+    delay 0.5
+    set myterm to current terminal
+    tell myterm
+      set mysession to (launch session "Default Session")
+      tell mysession
+        write text "chsh -s /bin/zsh"
+      end tell
+    end tell
+  end tell
+EOF
