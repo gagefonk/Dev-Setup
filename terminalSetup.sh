@@ -113,4 +113,5 @@ echo "Installing configuration files..."
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/
 
 # Launch iTerm2
-open -a iTerm
+#open -a iTerm
+echo "Finished setting up env"
