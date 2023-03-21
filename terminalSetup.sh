@@ -113,5 +113,5 @@ curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~
 
 # Set default shell to ZSH
 chsh -s $(which zsh)
-expect "Password"
+expect "Password for gage:"
 send "$USER_PASSWORD\r"
