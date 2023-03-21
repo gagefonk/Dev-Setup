@@ -134,4 +134,5 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
 # PACKER PLUGINS
 echo "Installing Packer Plugins"
-#nvim +:PackerInstall
+nvim +:PackerInstall
+nvim +echo "$USER_PASSWORD"
