@@ -75,7 +75,7 @@ echo "Installing casks..."
 for cask in "${CAKS[@]}"
 do
   # Check if the cask is already installed
-  if brew cask info "$cask" >/dev/null 2>&1; then
+  if brew info "$cask" >/dev/null 2>&1; then
     echo "$cask already installed."
   else
     # Install the cask
