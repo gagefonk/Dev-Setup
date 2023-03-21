@@ -17,13 +17,13 @@ mkdir -p ~/.config/nvim
 # Create blank config files to for symlink later
 echo "Creating placeholder configfiles for symlinks"
 tmuxFile=~/tmux.conf
-if [ ! -f  $tmuxFile ]
+if [ ! -f  $tmuxFile ] 
 then
     touch $tmuxFile
 fi
 
 p10kFile=~/.p10k.zsh
-if [ ! -f  $p10kFile ]
+if [ ! -f  $p10kFile ] 
 then
     touch $p10kFile
 fi
