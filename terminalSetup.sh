@@ -17,12 +17,14 @@ mkdir -p ~/.config/nvim
 # CONFIG FILES
 echo "Creating placeholder config files for symlinks..."
 if [ ! -f ~/tmux.conf ]; then
+    cd ~
     touch ~/tmux.conf
 else
     echo "tmux.conf already exists."
 fi
 
 if [ ! -f ~/.p10k.zsh ]; then
+    cd ~
     touch ~/.p10k.zsh
 else
     echo ".p10k.zsh already exists."
