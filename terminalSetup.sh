@@ -112,6 +112,11 @@ echo "Installing configuration files..."
 #curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/
 
+# Create SymLinks
+ln -s ~/.tmux.conf ~/.config/dotfiles/tmux.conf
+ls -s ~/.p10k.zsh ~/.config/dotfiles/.p10k.zsh
+ls -s ~/.zshrc ~/.config/dotfiles/.zshrc
+
 # Launch iTerm2
 #open -a iTerm
 echo "Finished setting up env"
