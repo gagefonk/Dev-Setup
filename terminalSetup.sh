@@ -121,6 +121,10 @@ ln -s ~/.tmux.conf ~/.config/dotfiles/tmux.conf
 ln -s ~/.p10k.zsh ~/.config/dotfiles/.p10k.zsh
 ln -s ~/.zshrc ~/.config/dotfiles/.zshrc
 
+# Install packer plugins
+echo "Installing Packer Plugins"
+nvim +PackerInstall
+
 # Launch iTerm2
 #open -a iTerm
 echo "Finished setting up env"
