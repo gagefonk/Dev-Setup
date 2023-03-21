@@ -116,4 +116,4 @@ sudo chsh -s $(which zsh)
 
 # Launch ZSH
 zsh
-zsh -c clear
+clear
