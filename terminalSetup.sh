@@ -114,5 +114,5 @@ curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~
 # Set default shell to ZSH
 sudo chsh -s $(which zsh)
 
-# Launch ZSH
-zsh
+# Launch iterm and zsh
+open -a iTerm && zsh
