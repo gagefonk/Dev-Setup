@@ -49,6 +49,8 @@ CASKS=(
 iterm2
 rectangle
 visual-studio-code
+spotify
+discord
 )
 
 echo "Installing casks..."
