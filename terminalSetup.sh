@@ -118,9 +118,9 @@ curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~
 
 # Create SymLinks
 echo "Creating Symlinks"
-ln -s ~/.config/dotfiles/tmux.conf ~/tmux.conf
-ln -s ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
-ln -s ~/.config/dotfiles/.zshrc ~/.zshrc
+ln -s ~/tmux.conf ~/.config/dotfiles/tmux.conf
+ln -s ~/.p10k.zsh ~/.config/dotfiles/.p10k.zsh
+ln -s ~/.zshrc ~/.config/dotfiles/.zshrc
 
 # Install packer plugins
 echo "Installing Packer Plugins"
