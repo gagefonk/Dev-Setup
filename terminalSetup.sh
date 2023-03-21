@@ -1,130 +1,68 @@
-#!/bin/bash/expect
-set -e
-###################################################################################################
-##################################### Machine Setup ###############################################
-###################################################################################################
+#!/bin/bash
 
-# Prompt for PW
-sudo -v
+# Prompt for sudo password
+read -sp "Enter your sudo password: " sudo_password
+echo $sudo_password | sudo -S echo "Thanks!"
 
-# Keep sudo credentials fresh while script is running
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
-
-echo "Begining Machine Setup"
-
-# Create Config Directory
-mkdir -p ~/.config
+# Create necessary directories
 mkdir -p ~/.config/nvim
 
-# Install Homebrew
-echo "Installing Homebrew"
-echo "$USER_PASSWORD" | NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/$USER/.zprofile
-eval $(/opt/homebrew/bin/brew shellenv)
+# Install Homebrew silently
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
 
-# Install OHMYZSH - Silently
-if [ ! -d ~/.oh-my-zsh ]; then
-  echo "Installing OHMYZSH..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+# Install Oh My Zsh silently if it doesn't exist
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# Install Packages
-PACKAGES=(
-git
-npm
-python
-python3
-tmux
-neovim
-romkatv/powerlevel10k/powerlevel10k
-zsh-syntax-highlighting
-zsh-autosuggestions
-)
-
-echo "Installing packages..."
-for package in "${packages[@]}"
-do
-  # Check if the package is already installed
-  if brew list "$package" >/dev/null 2>&1; then
-    echo "$package already installed."
-  else
-    # Install the package
-    echo "Installing $package..."
-    brew install "$package"
-  fi
+# Define Homebrew packages and install if they don't exist
+brew_packages=(git npm python tmux neovim romkatv/powerlevel10k/powerlevel10k zsh-syntax-highlighting zsh-autosuggestions)
+for package in "${brew_packages[@]}"; do
+    if ! brew list -1 | grep -q "^$package\$"; then
+        echo "Installing $package"
+        echo $sudo_password | brew install $package
+    fi
 done
 
-# Install Casks
-CASKS=(
-iterm2
-rectangle
-visual-studio-code
-spotify
-discord
-)
-
-echo "Installing casks..."
-for cask in "${casks[@]}"
-do
-  # Check if the cask is already installed
-  if brew cask list "$cask" >/dev/null 2>&1; then
-    echo "$cask already installed."
-  else
-    # Install the cask
-    echo "Installing $cask..."
-    brew install --cask "$cask"
-  fi
+# Define Homebrew casks and install if they don't exist
+brew_casks=(iterm2 rectangle visual-studio-code spotify discord)
+for cask in "${brew_casks[@]}"; do
+    if ! brew list -1 --cask | grep -q "^$cask\$"; then
+        echo "Installing $cask"
+        echo $sudo_password | brew install --cask $cask
+    fi
 done
 
-# Install Fonts
-FONTS=(
-font-hack-nerd-font
-)
-
-brew tap homebrew/cask-fonts
-for font in "${fonts[@]}"
-do
-  # Check if the cask is already installed
-  if brew cask list "$cask" >/dev/null 2>&1; then
-    echo "$cask already installed."
-  else
-    # Install the cask
-    echo "Installing $cask..."
-    brew install --cask "$cask"
-  fi
+# Define fonts and install if they don't exist
+brew_fonts=(font-hack-nerd-font)
+for font in "${brew_fonts[@]}"; do
+    if ! brew list -1 | grep -q "^$font\$"; then
+        echo "Installing $font"
+        echo $sudo_password | brew install $font
+    fi
 done
 
-echo "Cleaning up..."
-brew cleanup
+# Clean up Homebrew
+echo "Cleaning up Homebrew..."
+echo $sudo_password | brew cleanup
 
-# Install Packer
-# LUA plugin manager for VIM
-if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
-  echo "Installing Packer..."
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
+# Install NVim packer
+echo "Installing NVim packer..."
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# Config files
+# Install configuration files
 echo "Installing configuration files..."
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/tmux.conf > ~/.tmux.conf
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.p10k.zsh > ~/.p10k.zsh
 curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zshrc
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
 
-# Launch iTerm2
+# Launch iTerm2 and set the default shell to zsh
+echo "Launching iTerm2..."
 open -a iTerm
+sleep 2
+echo $sudo_password | chsh -s /bin/zsh
 
-# Set default shell to Zsh in iTerm2
-/usr/bin/osascript <<EOF
-  tell application "iTerm"
-    activate
-    delay 0.5
-    set myterm to current terminal
-    tell myterm
-      set mysession to (launch session "Default Session")
-      tell mysession
-        write text "sudo chsh -s /bin/zsh"
-      end tell
-    end tell
-  end tell
-EOF
+# Launch Zsh
+echo "Launching Zsh..."
+zsh
