@@ -18,7 +18,7 @@ mkdir -p ~/.config/nvim
 
 # Install Homebrew
 echo "Installing Homebrew"
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo "$USER_PASSWORD" | NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/$USER/.zprofile
 eval $(/opt/homebrew/bin/brew shellenv)
 
@@ -112,4 +112,4 @@ curl https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/.zshrc > ~/.zsh
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
 
 # Set default shell to ZSH
-chsh -s /usr/local/bin/zsh
+echo "$USER_PASSWORD" | chsh -s $(which zsh)
