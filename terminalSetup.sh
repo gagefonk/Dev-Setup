@@ -15,7 +15,7 @@ echo "Creating Directories..."
 mkdir -p ~/.config/nvim
 
 # CONFIG FILES
-echo "Creating placeholder configfiles for symlinks..."
+echo "Creating placeholder config files for symlinks..."
 if [ ! -f ~/tmux.conf ]; then
     touch ~/tmux.conf
 else
