@@ -26,11 +26,17 @@ vim.cmd [[packadd packer.nvim]]
 
 return packer.startup(function(use)
 	use 'wbthomason/packer.nvim'
-	use 'ellisonleao/gruvbox.nvim'
 	use 'nvim-tree/nvim-tree.lua'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-lualine/lualine.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'svrana/neosolarized.nvim',
+    requires = { 'tjdevries/colorbuddy.nvim' }
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+  }
   use {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
