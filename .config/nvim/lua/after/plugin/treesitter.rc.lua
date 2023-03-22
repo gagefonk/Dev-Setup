@@ -3,7 +3,7 @@ require 'nvim-treesitter.confs'.setup {
 
   sync_install = false,
   auto_install = true,
-  hightlight = {
-    enablke = true,
+  highlight = {
+    enable = true,
   },
 }
