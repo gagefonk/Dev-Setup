@@ -1,5 +1,3 @@
 require('plugins')
 require('core.vim_keymaps')
-require('core.gruvbox.lua')
-require('core.nvim-tree.lua')
-require('core.lualine.lua')
+require('plugin_config')
