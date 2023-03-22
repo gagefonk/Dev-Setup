@@ -1,2 +1,5 @@
 require('plugins')
-require('highlights')
+require('vim_keymaps')
+require('gruvbox.lua')
+require('nvim-tree.lua')
+require('lualine.lua')
