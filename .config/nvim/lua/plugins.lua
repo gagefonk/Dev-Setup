@@ -22,6 +22,8 @@ packer.init {
   },
 }
 
+local packer_bootstrap = ensure_packer()
+
 vim.cmd [[packadd packer.nvim]]
 
 return packer.startup(function(use)
@@ -30,8 +32,6 @@ return packer.startup(function(use)
 	use 'nvim-tree/nvim-tree.lua'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-lualine/lualine.nvim'
---   use 'lewis6991/gitsigns.nvim'
---   use 'dinhhuy258/git.nvim' -- For git blame & browse
     
   -- Automatically set up config after cloning packer.nvim
     if PACKER_BOOSTRAP then
