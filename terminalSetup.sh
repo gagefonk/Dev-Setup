@@ -16,8 +16,8 @@ mkdir -p ~/.config/nvim
 
 # CONFIG FILES
 echo "Creating placeholder config files for symlinks..."
-touch $HOME/tmux.conf || true
-touch $HOME/.p10k.zsh || true
+test -f "$HOME/tmux.conf" || touch "$HOME/tmux.conf"
+test -f "$HOME/.p10k.zsh" || touch "$HOME/.p10k.zsh"
 
 # HOMEBREW
 if ! command -v brew &> /dev/null
