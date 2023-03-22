@@ -16,8 +16,6 @@ mkdir -p ~/.config/nvim
 
 # CONFIG FILES
 echo "Creating placeholder config files for symlinks..."
-rm ~/tmux.conf
-rm ~/.p10k.zsh
 touch ~/tmux.conf
 touch ~/.p10k.zsh
 
