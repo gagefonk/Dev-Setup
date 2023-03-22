@@ -142,6 +142,9 @@ ln -sf ~/.config/dotfiles/tmux.conf ~/tmux.conf
 ln -sf ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
 ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
+# Import iterm settings
+defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
+
 # PACKER PLUGINS
 echo "Installing Packer Plugins"
 nvim
