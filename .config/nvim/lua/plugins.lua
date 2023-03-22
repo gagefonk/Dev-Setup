@@ -30,6 +30,12 @@ return packer.startup(function(use)
 	use 'nvim-tree/nvim-tree.lua'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-lualine/lualine.nvim'
+  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-telescope/telescope.nvim'
+    tag = '0.1.0'
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
     
   -- Automatically set up config after cloning packer.nvim
     if PACKER_BOOSTRAP then
