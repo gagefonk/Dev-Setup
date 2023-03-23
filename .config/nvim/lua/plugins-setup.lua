@@ -10,6 +10,8 @@ local ensure_packer = function()
   return false
 end
 
+local packer_bootstrap = ensure_packer()
+
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
 vim.cmd [[
   augroup packer_user_config
