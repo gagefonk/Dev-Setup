@@ -37,7 +37,7 @@ local packer_bootstrap = ensure_packer()
 
 -- vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function(use)
+return require('packer').startup({function(use)
   -- Packer
 	use 'wbthomason/packer.nvim'
   -- Lua Functions that other plugins use
@@ -65,9 +65,10 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end,
-  config = {
-    display = {
-      open_fn = require('packer.util').float {border = "rounded"},
-    }    
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'rounded' })
+    end
   }
-)
+}})
