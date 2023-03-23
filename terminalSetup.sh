@@ -62,6 +62,7 @@ python
 python3
 tmux
 neovim
+ripgrep
 zsh-syntax-highlighting
 zsh-autosuggestions
 )
