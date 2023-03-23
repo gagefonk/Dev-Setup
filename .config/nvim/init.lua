@@ -1,3 +1,4 @@
-require('base')
-require('plugins')
-require('vim_keymaps')
+require("plugins-setup")
+require("core.options")
+require("core.keymaps")
+require("core.colorscheme")
