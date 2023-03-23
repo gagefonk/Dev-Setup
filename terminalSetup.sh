@@ -14,7 +14,7 @@ echo "Begining Machine Setup..."
 echo "Removing config files and directories..."
 rm -r ~/.config
 rm ~/.p10k.zsh
-
+rm -r ~/.local/share/nvim
 echo "Creating Directories..."
 mkdir -p ~/.config/nvim
 

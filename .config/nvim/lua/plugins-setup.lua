@@ -27,15 +27,15 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- Have packer use floating window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float {border = "rounded" }
-    end,
-  },
-}
+-- packer.init {
+--   display = {
+--     open_fn = function()
+--       return require("packer.util").float {border = "rounded" }
+--     end,
+--   },
+-- }
 
-vim.cmd [[packadd packer.nvim]]
+-- vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   -- Packer
@@ -64,4 +64,10 @@ return require('packer').startup(function(use)
   if packer_bootstrap then
     require('packer').sync()
   end
-end)
+end,
+  config = {
+    display = {
+      open_fn = require('packer.util').float {border = "rounded"},
+    }    
+  }
+)
