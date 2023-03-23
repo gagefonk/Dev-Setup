@@ -146,4 +146,4 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 echo "Installing Packer Plugins"
 # nvim
 nvim
-nvim --headless -c 'PackerSync'
+# nvim --headless -c 'PackerSync'
