@@ -38,23 +38,26 @@ packer.init {
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	use 'wbthomason/packer.nvim'                                                              -- packer
-  use 'nvim-lua/plenary.nvim'                                                               -- lua functions that other  plugins use
-  use 'folke/tokyonight.nvim'                                                               -- color scheme
-  use 'christoomey/vim-tmux-navigator'                                                      -- tmux & split window navigation
-  use 'numToStr/Comment.nvim'                                                               -- commenting
-	use 'nvim-tree/nvim-tree.lua'                                                             -- file explorer
-	use 'nvim-tree/nvim-web-devicons'                                                         -- treesitter icons
-	use 'nvim-lualine/lualine.nvim'                                                           -- lualine
-  use {                                                                                     -- treesitter
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
-  use {                                                                                     -- telescope
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.0',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+  -- Packer
+	use 'wbthomason/packer.nvim'
+  -- Lua Functions that other plugins use
+  use 'nvim-lua/plenary.nvim'
+  -- Color Scheme
+  use 'folke/tokyonight.nvim'
+  -- Tmux & split window navigation
+  use 'christoomey/vim-tmux-navigator'
+  -- Commenting
+  use 'numToStr/Comment.nvim'
+  -- File Explorer
+	use 'nvim-tree/nvim-tree.lua'
+  -- Lualine
+  use 'nvim-lualine/lualine.nvim'
+  -- Treesitter
+	use 'nvim-tree/nvim-web-devicons'
+  use { 'nvim-treesitter/nvim-treesitter',run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, }
+  -- Telescope
+  use { 'nvim-telescope/telescope.nvim',branch = '0.1.0x',requires = { { 'nvim-lua/plenary.nvim' } } }
+  use { 'nvim-telescope/telescope-fzf-native.nvim',run = "make" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
