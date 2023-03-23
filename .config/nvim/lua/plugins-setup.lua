@@ -39,7 +39,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
 	use 'wbthomason/packer.nvim'
-  use 'folke/tokyonight.nvim', { 'branch': 'main' }, -- color scheme
+  use 'folke/tokyonight.nvim' -- color scheme
 	use 'nvim-tree/nvim-tree.lua'
 	use 'nvim-tree/nvim-web-devicons'
 	use 'nvim-lualine/lualine.nvim'
