@@ -11,6 +11,10 @@ sudo -v
 echo "Begining Machine Setup..."
 
 # CONFIG DIRECTORIES
+echo "Removing config files and directories..."
+rm -r ~/.config
+rm ~/.p10k.zsh
+
 echo "Creating Directories..."
 mkdir -p ~/.config/nvim
 
