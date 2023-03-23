@@ -68,6 +68,11 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
+  -- LSP servers
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  -- LSP configuration
+  use 'neovim/nvim-lspconfig'
 
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

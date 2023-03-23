@@ -145,6 +145,9 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 
 # PACKER PLUGINS
 echo "Installing Packer Plugins"
-# nvim
-nvim -c 'PackerSync' -c 'quitall'
+# Packer
+nvim -c 'PackerSync' -c 'wait' -c 'qa!'
+# Mason
+nvim -c 'Mason' -c 'wait' -c 'qa!'
+# NVIM
 nvim
