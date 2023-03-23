@@ -16,7 +16,6 @@ mkdir -p ~/.config/nvim
 
 # CONFIG FILES
 echo "Creating placeholder config files for symlinks..."
-touch ~/tmux.conf
 touch ~/.p10k.zsh
 
 # HOMEBREW
@@ -127,9 +126,8 @@ fi
 echo "Installing configuration files..."
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 
-# CSYMLINKS
+# SYMLINKS
 echo "Creating Symlinks"
-ln -sf ~/.config/dotfiles/tmux.conf ~/tmux.conf
 ln -sf ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
 ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
