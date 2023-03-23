@@ -12,8 +12,18 @@ echo "Begining Machine Setup..."
 
 # CONFIG DIRECTORIES
 echo "Removing config files and directories..."
-rm -r ~/.config
-rm ~/.p10k.zsh
+if [ -d ~/.config ]; then
+  rm -r ~/.config
+else
+  echo ".config directory not found"
+fi
+
+if [ -d ~/.p10k.zsh]; then
+  rm ~/.p10k.zsh
+else
+  echo ".p10k.zsh not found."
+fi
+
 echo "Creating Directories..."
 mkdir -p ~/.config/nvim
 
