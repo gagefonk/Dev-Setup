@@ -9,7 +9,7 @@ if not actions_steup then
 end
 
 telescope.setup({
-    default = {
+    defaults = {
         i = {
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
