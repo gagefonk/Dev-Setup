@@ -7,7 +7,7 @@ local function run_mason()
 end
 
 -- Register an autocmd to run :Mason after :PackerSync
-vim.cmd([[autocmd User PackerSyncPost * lua run_mason()]])
+vim.cmd([[autocmd User PackerComplete * lua run_mason()]])
 
 -- Run :PackerSync
 api.nvim_command('PackerSync')
