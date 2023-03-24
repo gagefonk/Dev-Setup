@@ -39,41 +39,6 @@
 --     })
 -- end
 
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@gagefonk 
-craftzdog
-/
-dotfiles-public
-Public
-Fork your own copy of craftzdog/dotfiles-public
-Code
-Issues
-18
-Pull requests
-1
-Actions
-Projects
-Security
-Insights
-dotfiles-public/.config/nvim/plugin/lspconfig.lua
-@harshv1741
-harshv1741 fix(nvim): Switch from sumneko_lua to lua_ls (#104)
-…
-Latest commit 105681a on Feb 14
- History
- 3 contributors
-@craftzdog@rondevs@harshv1741
-148 lines (128 sloc)  3.79 KB
-
---vim.lsp.set_log_level("debug")
-
 local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
@@ -220,18 +185,3 @@ vim.diagnostic.config({
     source = "always", -- Or "if_many"
   },
 })
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-dotfiles-public/lspconfig.lua at master · craftzdog/dotfiles-public
