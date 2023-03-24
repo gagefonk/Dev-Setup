@@ -3,7 +3,7 @@ local api = vim.api
 
 -- Define a function to run :Mason
 local function run_mason()
-  api.nvim_command('Mason')
+  api.nvim_command('MasonInstallAll')
 end
 
 -- Register an autocmd to run :Mason after Packer completes
