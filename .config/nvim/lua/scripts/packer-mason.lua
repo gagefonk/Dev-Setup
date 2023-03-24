@@ -1,13 +1,13 @@
 -- Import the Neovim Lua API
 local api = vim.api
 
+-- Register an autocmd to run :Mason after Packer completes
+vim.cmd([[autocmd User PackerComplete lua run_mason()]])
+
 -- Define a function to run :Mason
 local function run_mason()
   api.nvim_command('Mason')
 end
-
--- Register an autocmd to run :Mason after Packer completes
-vim.cmd([[autocmd User PackerComplete lua run_mason()]])
 
 -- Define the Packer setup function
 function setup_packer()
