@@ -143,11 +143,13 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 # Import iterm settings
 defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
 
-# PACKER PLUGINS
-echo "Installing Packer Plugins"
-nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
-echo "Installing LSPs"
-nvim --headless -c "autocmd User MasonUpdateAllComplete quitall" -c "MasonUpdateAll"
+# PLUGINS/LSPS
+echo "Installing plugins, and LSPs..."
+nvim -c "luafile packer-mason.lua"
+# echo "Installing Packer Plugins"
+# nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
+# echo "Installing LSPs"
+# nvim --headless -c "autocmd User MasonUpdateAllComplete quitall" -c "Mason"
 # treesitter -> nvim --headless -c "TSUpdate" +qa
 # Packer
 #nvim -c 'PackerSync' -c 'wait'

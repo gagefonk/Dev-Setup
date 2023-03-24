@@ -16,7 +16,6 @@ mason_lspconfig.setup({
     "cssls",
     "html",
     "tailwindcss",
-    "sumneko_lua",
     "dockerls",
     "eslint",
     "graphql",
