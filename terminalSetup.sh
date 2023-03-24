@@ -145,7 +145,7 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 
 # PLUGINS/LSPS
 echo "Installing plugins, and LSPs..."
-nvim -c "luafile packer-mason.lua"
+nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
 # echo "Installing Packer Plugins"
 # nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
 # echo "Installing LSPs"
