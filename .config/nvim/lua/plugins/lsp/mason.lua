@@ -10,6 +10,12 @@ if not mason_lspconfig_status then
   return
 end
 
+local mason_null_ls_status, mason_null_ls = pcall(require, "mason_null_ls")
+if not mason_null_ls_status then
+  print("Failed to loas mason_null_ls.")
+  return
+end
+
 mason.setup()
 
 mason_lspconfig.setup({
@@ -25,5 +31,13 @@ mason_lspconfig.setup({
     "tsserver",
     "pylsp",
     "sqlls",
+  }
+})
+
+mason_null_ls.setup({
+  ensure_installed = {
+    "prettier",
+    "stylua",
+    "eslint_d"
   }
 })

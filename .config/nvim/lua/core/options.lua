@@ -4,7 +4,6 @@ local opt = vim.opt
 opt.relativenumber = true
 opt.number = true
 
-
 -- tabs & identation
 opt.tabstop = 2
 opt.shiftwidth = 2

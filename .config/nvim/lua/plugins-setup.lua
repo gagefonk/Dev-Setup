@@ -76,6 +76,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use { 'glepnir/lspsaga.nvim', bracnh = "main" }
   use 'onsails/lspkind.nvim'
+  -- Lint & Format
+  use 'jose-elias-alvarez/null-ls.nvim'
+  use 'jayp0521/mason-null-ls.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
