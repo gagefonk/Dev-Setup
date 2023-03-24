@@ -1,10 +1,12 @@
 local telescope_setup, telescope = pcall(require, "telescope")
 if not telescope_setup then
+    print("Failed to load telescope.")
     return
 end
 
 local actions_steup, actions = pcall(require, "telescope.actions")
 if not actions_steup then
+    print("Failed to load telescope-actions.")
     return
 end
 

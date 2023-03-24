@@ -1,5 +1,6 @@
 local setup, nvimtree = pcall(require, "nvim-tree")
 if not setup then
+    print("Failed to load nvimtree.")
     return
 end
 

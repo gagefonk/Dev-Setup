@@ -1,15 +1,18 @@
 local cmp_status, cmp = pcall(require, "cmp")
 if not cmp_status then
+    print("Failed to load cmp.")
     return
 end
 
 local luasnip_status, luasnip = pcall(require, "luasnip")
 if not luasnip_status then
+    print("Failed to load luasnip.")
     return
 end
 
 local lspkind_status, lspkind = pcall(require, "lspkind")
 if not lspkind_status then
+    print("Failed to load lspkind")
     return
 end
 
