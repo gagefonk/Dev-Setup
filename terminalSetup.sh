@@ -138,7 +138,7 @@ touch ~/.gitignore_global
 
 # CONFIGURE GITIGNORE_GLOBAL
 echo "Configuring gitignore_global"
-echo .DS_Store >> ?/.gitignore_global
+echo .DS_Store >> ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
 # PACKER
