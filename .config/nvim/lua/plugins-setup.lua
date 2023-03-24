@@ -74,7 +74,7 @@ return require('packer').startup(function(use)
   -- LSP configuration
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
-  use { 'clepnir/laspsaga.nvim', bracnh = "main" }
+  use { 'glepnir/laspsaga.nvim', bracnh = "main" }
   use 'onsails/lspkind.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
