@@ -79,6 +79,9 @@ return require('packer').startup(function(use)
   -- Lint & Format
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jayp0521/mason-null-ls.nvim'
+  -- Auto closing
+  use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-ts-autotag'
 
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
