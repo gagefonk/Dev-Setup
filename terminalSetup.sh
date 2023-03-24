@@ -145,9 +145,15 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 
 # PACKER PLUGINS
 echo "Installing Packer Plugins"
+nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
+echo "Installing LSPs"
+nvim --headless -c "autocmd User MasonUpdateAllComplete quitall" -c "MasonUpdateAll"
+# treesitter -> nvim --headless -c "TSUpdate" +qa
 # Packer
-nvim -c 'PackerSync' -c 'wait' -c 'qa!'
+#nvim -c 'PackerSync' -c 'wait'
 # Mason
-nvim -c 'Mason' -c 'wait' -c 'qa!'
+#nvim -c 'Mason'
 # NVIM
-nvim
+# nvim
+# Finish
+echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
