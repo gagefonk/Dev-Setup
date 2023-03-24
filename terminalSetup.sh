@@ -124,6 +124,23 @@ done
 echo "Cleaning up..."
 brew cleanup
 
+# GIT IGNORE
+echo "Removing .gitignore_global"
+if [ -f ~/.gitignore_global ]; then
+  rm ~/.gitignore_global
+else
+  echo ".gitignore_global not found"
+fi
+
+# GIT IGNORE GLOBAL
+echo "Creating gitignore_global"
+touch ~/.gitignore_global
+
+# CONFIGURE GITIGNORE_GLOBAL
+echo "Configuring gitignore_global"
+echo .DS_Store >> ?/.gitignore_global
+git config --global core.excludesfile ~/.gitignore_global
+
 # PACKER
 # LUA plugin manager for VIM
 if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
