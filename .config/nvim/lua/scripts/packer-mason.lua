@@ -3,7 +3,7 @@ local api = vim.api
 
 -- Register an autocmd to run :Mason after Packer completes
 -- vim.cmd([[autocmd User PackerComplete :lua vim.cmd('Mason')]])
-vim.cmd([[autocmd User PackerComplete :lua require('packer-mason.lua').run_mason()]])
+vim.cmd([[autocmd User PackerComplete :lua run_mason()]])
 
 
 -- Define the Packer setup function
