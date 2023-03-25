@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-ENABLE_LUNARVIM=true
 
 #################################################################################################################################################
 ############################################################ Machine Setup ######################################################################
@@ -164,6 +163,9 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
 
 #NVIM
+
+ENABLE_LUNARVIM=true
+
 if ["$ENABLE_LUNARVIM" = true]; then
 # have to uninstall because of all the errors?
   brew remove neovim
