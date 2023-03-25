@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+ENABLE_LUNARVIM = true
 
 #################################################################################################################################################
 ############################################################ Machine Setup ######################################################################
@@ -61,6 +62,7 @@ typescript
 python
 python3
 tmux
+neovim
 ripgrep
 rust
 make
@@ -161,15 +163,21 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 # Import iterm settings
 defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
 
-# PLUGINS/LSPS
-#echo "Setting up NVIM..."
-#nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
-#echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
+#NVIM
+if ["$ENABLE_LUNARVIM" = true]; then
+# have to uninstall because of all the errors?
+  brew remove neovim
 
-### LunarVim
 echo "Setting up LunarVim..."
 # Set the LunarVim branch and NeoVim version
 LV_BRANCH='release-1.2/neovim-0.8'
 
 # Download and run the LunarVim installer
-curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/$LV_BRANCH/utils/installer/install.sh | bash -s -- -y
+  curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/$LV_BRANCH/utils/installer/install.sh | bash -s -- -y
+
+else
+#echo "Setting up NVIM..."
+  nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
+  echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
+fi
+
