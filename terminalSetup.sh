@@ -166,8 +166,6 @@ ENABLE_LUNARVIM=true
 if [ $ENABLE_LUNARVIM = true ]; then
   # have to uninstall tree-sitter because of all the errors?
   brew uninstall --ignore-dependencies tree-sitter
-  # removing the nvim folder
-  rm -r ~/.config/nvim
   echo "Setting up LunarVim..."
   # Set the LunarVim branch and NeoVim version
   LV_BRANCH='release-1.2/neovim-0.8'
