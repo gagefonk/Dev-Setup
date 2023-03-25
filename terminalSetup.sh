@@ -63,6 +63,9 @@ python3
 tmux
 neovim
 ripgrep
+pip
+cargo
+make
 zsh-syntax-highlighting
 zsh-autosuggestions
 )
