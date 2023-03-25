@@ -44,10 +44,9 @@ return require('packer').startup(function(use)
   -- Color Scheme
   use 'folke/tokyonight.nvim'
   -- Tmux & split window navigation
-  --use 'christoomey/vim-tmux-navigator'
+  use 'christoomey/vim-tmux-navigator'
   -- Commenting
   use 'numToStr/Comment.nvim'
-  use 'JoosepAlviste/nvim-ts-context-commentstring'
   -- File Explorer
 	use 'nvim-tree/nvim-tree.lua'
   -- Lualine
@@ -75,29 +74,16 @@ return require('packer').startup(function(use)
   -- LSP configuration
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
-  --use { 'glepnir/lspsaga.nvim', bracnh = "main" }
+  use { 'glepnir/lspsaga.nvim', bracnh = "main" }
   use 'onsails/lspkind.nvim'
-  use 'RRethy/vim-illuminate'
   -- Lint & Format
   use 'jose-elias-alvarez/null-ls.nvim'
   use 'jayp0521/mason-null-ls.nvim'
-  use 'lukas-reineke/indent-blankline.nvim'
   -- Auto closing
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
-  -- Buffers
-  use 'akinsho/bufferline.nvim'
-  use 'moll/vim-bbye'
-  -- Term
-  use 'akinsho/toggleterm.nvim'
-  -- Project Management
-  use 'ahmedkhalf/project.nvim'
   -- GIT
   use 'lewis6991/gitsigns.nvim'
-  -- Loading
-  use 'lewis6991/impatient.nvim'
-  -- Which key
-  use 'folke/which-key.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

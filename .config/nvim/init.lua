@@ -1,16 +1,26 @@
-require("plugins-setup")
-require("core.options")
-require("core.keymaps")
-require("core.colorscheme")
-require("plugins.comment")
-require("plugins.nvim-tree")
-require("plugins.lualine")
-require("plugins.telescope")
-require("plugins.lsp.mason")
-require("plugins.nvim-cmp")
-require("plugins.lsp.lspsaga")
-require("plugins.lsp.lspconfig")
-require("plugins.lsp.null-ls")
-require("plugins.autopairs")
-require("plugins.treesitter")
-require("plugins.gitsigns")
+require("core")
+require("plugins")
+
+
+
+-- require "user.options"
+-- require "user.keymaps"
+-- require "user.plugins"
+-- require "user.colorscheme"
+-- require "user.cmp"
+-- require "user.lsp"
+-- require "user.telescope"
+-- require "user.gitsigns"
+-- require "user.treesitter"
+-- require "user.autopairs"
+-- require "user.comment"
+-- require "user.nvim-tree"
+-- require "user.bufferline"
+-- require "user.lualine"
+-- require "user.toggleterm"
+-- require "user.project"
+-- require "user.impatient"
+-- require "user.indentline"
+-- require "user.alpha"
+-- require "user.whichkey"
+-- require "user.autocommands"
