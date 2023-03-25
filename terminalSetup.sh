@@ -61,7 +61,6 @@ typescript
 python
 python3
 tmux
-#neovim
 ripgrep
 rust
 make
