@@ -167,6 +167,7 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 #nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
 #echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
 
+### LunarVim Setup
 echo "Setting up LunarVim..."
 # Download and run the LunarVim installer
-curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/utils/installer/install.sh | bash -s -- -y
+curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/fc6873809934917b470bff1b072171879899a36b/utils/installer/install.sh | bash -s -- -y
