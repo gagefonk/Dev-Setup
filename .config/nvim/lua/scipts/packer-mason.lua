@@ -19,7 +19,7 @@ end
 
 -- Run Mason
 function run_mason()
-  --api.nvim_command('Mason')
+  api.nvim_command('Mason')
 end
 
 -- Define the function to run Packer and Mason setup
