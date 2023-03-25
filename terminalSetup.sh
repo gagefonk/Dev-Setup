@@ -124,6 +124,7 @@ do
 done
 
 # Configure NPM for global
+echo "Configuring npm..."
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 NPM_CONFIG_PREFIX=~/.npm-global
