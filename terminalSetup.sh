@@ -123,6 +123,11 @@ do
   fi
 done
 
+# Configure NPM for global
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+NPM_CONFIG_PREFIX=~/.npm-global
+
 # GIT IGNORE
 echo "Removing .gitignore_global"
 if [ -f ~/.gitignore_global ]; then
