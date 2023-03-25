@@ -161,7 +161,7 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
 
 # PLUGINS/LSPS
-echo "Installing plugins, and LSPs..."
+echo "Setting up NVIM..."
 nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
 # echo "Installing Packer Plugins"
 # nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
