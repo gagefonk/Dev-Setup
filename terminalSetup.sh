@@ -164,7 +164,6 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 ENABLE_LUNARVIM=true
 
 if [ $ENABLE_LUNARVIM = true ]; then
-  # have to uninstall tree-sitter because of all the errors?
   echo "Setting up LunarVim..."
   # Set the LunarVim branch and NeoVim version
   LV_BRANCH='release-1.2/neovim-0.8'
