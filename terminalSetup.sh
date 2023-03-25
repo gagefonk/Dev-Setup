@@ -166,7 +166,7 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 
 ENABLE_LUNARVIM=true
 
-if ["$ENABLE_LUNARVIM" = true]; then
+if [$ENABLE_LUNARVIM = true]; then
 # have to uninstall because of all the errors?
   brew remove neovim
 
