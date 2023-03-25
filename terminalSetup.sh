@@ -166,20 +166,20 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 
 ENABLE_LUNARVIM=true
 
-if [$ENABLE_LUNARVIM = true]; then
-# have to uninstall because of all the errors?
+if [ $ENABLE_LUNARVIM = true ]; then
+  # have to uninstall because of all the errors?
   brew remove neovim
-# removing the nvim folder
+  # removing the nvim folder
   rm -r ~/.config/nvim
   echo "Setting up LunarVim..."
-# Set the LunarVim branch and NeoVim version
+  # Set the LunarVim branch and NeoVim version
   LV_BRANCH='release-1.2/neovim-0.8'
 
-# Download and run the LunarVim installer
+  # Download and run the LunarVim installer
   curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/$LV_BRANCH/utils/installer/install.sh | bash -s -- -y
 
 else
-#echo "Setting up NVIM..."
+  #echo "Setting up NVIM..."
   nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
   echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
 fi
