@@ -167,8 +167,8 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 ENABLE_LUNARVIM=true
 
 if [ $ENABLE_LUNARVIM = true ]; then
-  # have to uninstall because of all the errors?
-  brew remove neovim
+  # have to uninstall tree-sitter because of all the errors?
+  brew uninstall --ignore-dependencies tree-sitter
   # removing the nvim folder
   rm -r ~/.config/nvim
   echo "Setting up LunarVim..."
