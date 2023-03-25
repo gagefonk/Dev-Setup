@@ -123,9 +123,6 @@ do
   fi
 done
 
-echo "Cleaning up..."
-brew cleanup
-
 # GIT IGNORE
 echo "Removing .gitignore_global"
 if [ -f ~/.gitignore_global ]; then
