@@ -169,10 +169,11 @@ ENABLE_LUNARVIM=true
 if [$ENABLE_LUNARVIM = true]; then
 # have to uninstall because of all the errors?
   brew remove neovim
-
-echo "Setting up LunarVim..."
+# removing the nvim folder
+  rm -r ~/.config/nvim
+  echo "Setting up LunarVim..."
 # Set the LunarVim branch and NeoVim version
-LV_BRANCH='release-1.2/neovim-0.8'
+  LV_BRANCH='release-1.2/neovim-0.8'
 
 # Download and run the LunarVim installer
   curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/$LV_BRANCH/utils/installer/install.sh | bash -s -- -y
