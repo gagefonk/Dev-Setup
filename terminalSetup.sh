@@ -152,7 +152,7 @@ fi
 
 # CONFIG FILES
 echo "Installing configuration files..."
-#curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
+curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 
 # SYMLINKS
 echo "Creating Symlinks"
