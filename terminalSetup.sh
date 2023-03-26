@@ -55,7 +55,6 @@ fi
 # PACKAGES
 PACKAGES=(
 git
-npm
 node
 typescript
 python
