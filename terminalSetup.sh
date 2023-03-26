@@ -169,7 +169,7 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 
 #NVIM
 
-ENABLE_LUNARVIM=true
+ENABLE_LUNARVIM=false
 
 if [ $ENABLE_LUNARVIM = true ]; then
   echo "Setting up LunarVim..."
