@@ -38,6 +38,4 @@
 -- augroup END
 -- ]])
 
-vim.cmd('!killall vim')
-vim.cmd('vim')
 vim.cmd('Mason')
