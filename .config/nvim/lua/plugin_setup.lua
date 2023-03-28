@@ -24,7 +24,7 @@ vim.cmd [[
 vim.cmd([[
 augroup PackerComplete
   autocmd!
-  autocmd User PackerComplete lua api.nvim_.command('Mason')
+  autocmd User PackerComplete lua vim.cmd('Mason')
 augroup END
 ]])
 
