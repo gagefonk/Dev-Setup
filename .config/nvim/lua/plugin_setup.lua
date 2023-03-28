@@ -21,22 +21,11 @@ vim.cmd [[
 ]]
 
 -- Autocommand that runs Mason when sync finishes
-local function packer_finished_sync()
-  if pcall(vim.fn.executable, 'mason') then
-    api.nvim_command('Mason')
-  end
-end
-
-vim.cmd[[
-  augroup PackerComplete
-    autocmd!
-    autocmd User PackerComplete lua packer_finished_sync()
-  augroup END
-]]
-
-
-
-
+-- local function packer_finished_sync()
+--   if pcall(vim.fn.executable, 'mason') then
+--     api.nvim_command('Mason')
+--   end
+-- end
 
 -- Use a protected call so we dont error out
 local status, packer = pcall(require, "packer")
@@ -119,12 +108,16 @@ return require('packer').startup(function(use)
   use 'folke/which-key.nvim'
   -- Auto closing
   use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
-
 
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
+    vim.cmd[[
+      augroup PackerComplete
+        autocmd!
+        autocmd User PackerComplete lua vim.cmd('Mason')
+      augroup END
+    ]]
     require('packer').sync()
   end
 end)
