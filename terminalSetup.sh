@@ -167,20 +167,7 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
 
 #NVIM
-
-ENABLE_LUNARVIM=false
-
-if [ $ENABLE_LUNARVIM = true ]; then
-  echo "Setting up LunarVim..."
-  # Set the LunarVim branch and NeoVim version
-  LV_BRANCH='release-1.2/neovim-0.8'
-
-  # Download and run the LunarVim installer
-  curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/$LV_BRANCH/utils/installer/install.sh | bash -s -- -y
-
-else
-  #echo "Setting up NVIM..."
-  nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
-  echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
-fi
+#echo "Setting up NVIM..."
+#nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
+echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
 
