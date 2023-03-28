@@ -24,9 +24,13 @@ vim.cmd [[
 vim.cmd([[
 augroup PackerComplete
   autocmd!
-  autocmd User PackerComplete lua vim.cmd('Mason')
-augroup END
+  autocmd User PackerComplete lua
+    if pcall(vim.fn.executable, 'mason') then
+      api.nvim_command('Mason')
+    end
+  augroup END
 ]])
+
 
 
 -- Use a protected call so we dont error out
