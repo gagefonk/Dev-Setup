@@ -38,6 +38,6 @@
 -- augroup END
 -- ]])
 
-vim.cmd('restart')
-vim.cmd('MasonUpdate')
+vim.cmd('!killall vim')
+vim.cmd('vim')
 vim.cmd('Mason')
