@@ -22,7 +22,7 @@ vim.cmd [[
 
 -- Autocommand that runs Mason when sync finishes
 local function packer_complete()
-  if pcall(vim.fn.executable, 'Mason') then
+  if pcall(vim.fn.executable, 'mason') then
     api.nvim_command('Mason')
   end
 end
