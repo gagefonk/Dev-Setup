@@ -81,11 +81,11 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
   -- LSP servers
-  use 'williamboman/mason-lspconfig.nvim'
   use {
     "williamboman/mason.nvim",
     run = ":MasonUpdate"
-}
+  }
+  use 'williamboman/mason-lspconfig.nvim'
   -- LSP configuration
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
