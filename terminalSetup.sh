@@ -19,6 +19,8 @@ else
 fi
 if [ -f ~/.p10k.zsh ]; then
   rm ~/.p10k.zsh
+else
+  echo ".p10k.zsh file not found"
 fi
 
 echo "Creating Directories..."
