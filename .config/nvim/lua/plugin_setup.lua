@@ -99,7 +99,7 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
   -- Auto closing
   use 'windwp/nvim-autopairs'
-  use 'windwp/nvim-ts-autotag'
+  -- use 'windwp/nvim-ts-autotag'
   -- Buffers
   use 'akinsho/bufferline.nvim'
   use 'moll/vim-bbye'
