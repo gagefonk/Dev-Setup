@@ -11,30 +11,22 @@ sudo -v
 echo "Begining Machine Setup..."
 
 # CONFIG DIRECTORIES
-echo "Removing config files and directories..."
-if [ -d ~/.config ]; then
-  rm -r ~/.config
-else
-  echo ".config directory not found"
-fi
+echo "Configuring directories..."
 
-if [ -d ~/.local/share/nvim ]; then
-  rm -rf ~/.local/share/nvim
-else
-  echo "Local nvim folder not found"
-fi
+echo "Removing ~/.config"
+rm -rf ~/.config
 
-if [ -f ~/.p10k.zsh ]; then
-  rm ~/.p10k.zsh
-else
-  echo ".p10k.zsh file not found"
-fi
+echo "Removing ~/.local/share/nvim"
+rm -rf ~/.local/share/nvim
 
-echo "Creating Directories..."
+echo "Removing ~/.p10k.zsh"
+rm -f ~/.p10k.zsh
+
+echo "Creating ~/.config/nvim"
 mkdir -p ~/.config/nvim
 
 # CONFIG FILES
-echo "Creating placeholder config files for symlinks..."
+echo "Creating placeholder .p10k.zsh files for symlinks..."
 touch ~/.p10k.zsh
 
 # HOMEBREW
@@ -158,23 +150,19 @@ echo "Configuring gitignore_global"
 echo .DS_Store >> ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 
-# PACKER
-# LUA plugin manager for VIM
-#if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
-#  echo "Installing Packer..."
-#  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-#fi
-
 # CONFIG FILES
 echo "Installing configuration files..."
 curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 
 # SYMLINKS
-echo "Creating Symlinks"
+echo "Creating symlink for .p10k.zsh"
 ln -sf ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
+
+echo "Creating symlink for .zshrc"
 ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
 # Import iterm settings
+echo "Importing iterm configuration"
 defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
 
 #NVIM
