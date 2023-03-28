@@ -160,7 +160,7 @@ curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~
 
 # SYMLINKS
 echo "Creating Symlinks"
-ln -sf ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
+#ln -sf ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
 ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
 # Import iterm settings
