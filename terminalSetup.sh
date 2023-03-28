@@ -17,8 +17,10 @@ if [ -d ~/.config ]; then
 else
   echo ".config directory not found"
 fi
+if [ -f ~/.p10k.zsh ]; then
+  rm ~/.p10k.zsh
+fi
 
-rm ~/.p10k.zsh
 echo "Creating Directories..."
 mkdir -p ~/.config/nvim
 
