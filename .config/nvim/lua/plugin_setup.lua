@@ -24,6 +24,7 @@ vim.cmd [[
 local function packer_complete()
   if pcall(vim.fn.executable, 'Mason') then
     api.nvim_command('Mason')
+  end
 end
 
 vim.cmd[[
