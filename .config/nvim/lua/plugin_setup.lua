@@ -83,9 +83,9 @@ return require('packer').startup(function(use)
   -- LSP servers
   use 'williamboman/mason-lspconfig.nvim'
   use {
-    'williamboman/mason.nvim',
+    "williamboman/mason.nvim",
     run = ":MasonUpdate"
-  }
+}
   -- LSP configuration
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
