@@ -25,7 +25,8 @@ if packer_bootstrap then
   vim.cmd[[
     augroup PackerComplete
       autocmd!
-      autocmd User PackerComplete lua dofile('~/.config/nvim/lua/scripts/packer-mason.lua')
+      -- autocmd User PackerComplete lua dofile('~/.config/nvim/lua/scripts/packer-mason.lua')
+      autocmd User PackerComplete lua vim.cmd('Mason)
     augroup END
   ]]
 end
