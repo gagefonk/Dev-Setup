@@ -35,7 +35,7 @@ packer.init {
   },
 }
 
--- PLUGIN BOIS
+-- PLUGIN
 return require('packer').startup(function(use)
   -- Packer
 	use 'wbthomason/packer.nvim'
