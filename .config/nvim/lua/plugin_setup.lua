@@ -21,17 +21,18 @@ vim.cmd [[
 ]]
 
 -- Autocommand that runs Mason when sync finishes
-vim.cmd[[
-  augroup PackerComplete
+vim.cmd([[
+augroup PackerComplete
   autocmd!
-  autocmd User PackerComplete lua << EOF
+  autocmd User PackerComplete lua
     local vim = vim
     if pcall(vim.fn.executable, 'mason') then
       api.nvim_command('Mason')
     end
-  EOF
+  end
 augroup END
-]]
+]])
+
 
 
 
