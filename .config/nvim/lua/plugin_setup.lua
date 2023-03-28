@@ -70,15 +70,6 @@ return require('packer').startup(function(use)
 	use 'nvim-tree/nvim-tree.lua'
   -- Lualine
   use 'nvim-lualine/lualine.nvim'
-  -- Treesitter
-	use 'nvim-tree/nvim-web-devicons'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function()
-        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-        ts_update()
-    end,
-}
   -- Telescope
   use { 'nvim-telescope/telescope-fzf-native.nvim',run = "make" }
   use {
@@ -122,11 +113,19 @@ return require('packer').startup(function(use)
   use 'lewis6991/impatient.nvim'
   -- Which key
   use 'folke/which-key.nvim'
+  -- Treesitter
+	use 'nvim-tree/nvim-web-devicons'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+    end,
+}
 
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
-    -- require('packer').sync()
-    require('packer').install()
+    require('packer').sync()
   end
 end)
