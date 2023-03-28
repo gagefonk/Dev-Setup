@@ -81,8 +81,11 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'rafamadriz/friendly-snippets'
   -- LSP servers
-  use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
+  use {
+    'williamboman/mason.nvim',
+    run = ":MasonUpdate"
+  }
   -- LSP configuration
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -112,12 +115,12 @@ return require('packer').startup(function(use)
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
-    vim.cmd[[
-      augroup PackerComplete
-        autocmd!
-        autocmd User PackerComplete lua vim.cmd('Mason')
-      augroup END
-    ]]
+    -- vim.cmd[[
+    --   augroup PackerComplete
+    --     autocmd!
+    --     autocmd User PackerComplete lua vim.cmd('Mason')
+    --   augroup END
+    -- ]]
     require('packer').sync()
   end
 end)
