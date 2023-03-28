@@ -20,6 +20,15 @@ vim.cmd [[
   augroup end
 ]]
 
+-- Autocommand that runs Mason when sync finishes
+vim.cmd([[
+augroup PackerComplete
+  autocmd!
+  autocmd User PackerComplete lua api.nvim_.command('Mason')
+augroup END
+]])
+
+
 -- Use a protected call so we dont error out
 local status, packer = pcall(require, "packer")
 if not status then
