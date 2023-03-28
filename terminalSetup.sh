@@ -168,5 +168,6 @@ defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.pli
 #NVIM
 #echo "Setting up NVIM..."
 #nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
-echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
+# echo "Installation complete, please close terminal/iterm2 and relaunch iterm"
+vim
 
