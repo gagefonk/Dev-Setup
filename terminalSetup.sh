@@ -17,6 +17,13 @@ if [ -d ~/.config ]; then
 else
   echo ".config directory not found"
 fi
+
+if [ -d ~/.local/share/nvim ]; then
+  rm -rf ~/.local/share/nvim
+else
+  echo "Local nvim folder not found"
+fi
+
 if [ -f ~/.p10k.zsh ]; then
   rm ~/.p10k.zsh
 else

@@ -54,7 +54,13 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   -- Treesitter
 	use 'nvim-tree/nvim-web-devicons'
-  use { 'nvim-treesitter/nvim-treesitter',run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+    end,
+}
   -- Telescope
   use { 'nvim-telescope/telescope-fzf-native.nvim',run = "make" }
   use {
