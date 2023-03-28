@@ -115,12 +115,12 @@ return require('packer').startup(function(use)
     -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
-    -- vim.cmd[[
-    --   augroup PackerComplete
-    --     autocmd!
-    --     autocmd User PackerComplete lua vim.cmd('Mason')
-    --   augroup END
-    -- ]]
+    vim.cmd[[
+      augroup PackerComplete
+        autocmd!
+        autocmd User PackerComplete lua dotfile('~/.config/nvim/lua/scripts/packer-mason.lua')
+      augroup END
+    ]]
     require('packer').sync()
   end
 end)

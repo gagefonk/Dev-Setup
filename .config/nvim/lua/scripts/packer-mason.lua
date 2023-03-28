@@ -38,4 +38,6 @@
 -- augroup END
 -- ]])
 
-vim.api.nvim_command('Mason')
+vim.cmd('restart')
+vim.cmd('MasonUpdate')
+vim.cmd('Mason')
