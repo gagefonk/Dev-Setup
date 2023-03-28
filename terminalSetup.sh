@@ -149,10 +149,10 @@ git config --global core.excludesfile ~/.gitignore_global
 
 # PACKER
 # LUA plugin manager for VIM
-if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
-  echo "Installing Packer..."
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
+#if [ ! -d ~/.local/share/nvim/site/pack/packer/start/packer.nvim ]; then
+#  echo "Installing Packer..."
+#  git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+#fi
 
 # CONFIG FILES
 echo "Installing configuration files..."
