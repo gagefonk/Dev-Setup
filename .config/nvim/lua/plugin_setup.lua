@@ -25,11 +25,11 @@ if packer_bootstrap then
   vim.cmd[[
     augroup PackerComplete
       autocmd!
-      -- autocmd User PackerComplete lua dofile('~/.config/nvim/lua/scripts/packer-mason.lua')
       autocmd User PackerComplete lua vim.cmd('Mason)
     augroup END
   ]]
 end
+-- autocmd User PackerComplete lua dofile('~/.config/nvim/lua/scripts/packer-mason.lua')
 
 -- Use a protected call so we dont error out
 local status, packer = pcall(require, "packer")
