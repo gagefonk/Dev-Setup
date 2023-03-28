@@ -7,6 +7,10 @@ end
 require("tokyonight").setup({
     style = "storm",
     transparent = true,
+    styles = {
+      sidebars = "transparent",
+      floats = "transparent",
+    },
     on_highlights = function(hl, c)
       local prompt = "#2d3149"
       hl.TelescopeNormal = {
@@ -38,3 +42,5 @@ require("tokyonight").setup({
       }
     end,
   })
+
+  vim.cmd("colorscheme tokyonight")
