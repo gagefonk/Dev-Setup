@@ -21,4 +21,4 @@ local plugins = require('core.lazyconfig.plugins')
 local opts = require('core.lazyconfig.opts')
 
 -- SETUP
-lazy.setup(plugins, opts)
+lazy.setup('plugins')
