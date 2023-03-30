@@ -19,6 +19,9 @@ rm -rf ~/.config
 echo "Removing ~/.local/share/nvim"
 rm -rf ~/.local/share/nvim
 
+echo "Removing ~/.cache/nvim"
+rm -rf ~/.cache/nvim
+
 echo "Removing ~/.p10k.zsh"
 rm -f ~/.p10k.zsh
 
