@@ -17,8 +17,8 @@ local ok, lazy = pcall(require, 'lazy')
 if not ok then return end
 
 -- GET PLUGIN LIST
-local plugins = require("plugins.plugins")
-local opts = {}
+local plugins = require('core.lazyconfig.plugins')
+local opts = require('core.lazyconfig.opts')
 
 -- SETUP
 lazy.setup(plugins, opts)
