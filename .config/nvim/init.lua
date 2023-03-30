@@ -1,4 +1,2 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
+-- LAZY VIM
 require("core.lazy")
--- COLOR SCHEME
-require('core.colorscheme')
