@@ -4,13 +4,17 @@ local plugins = {
         'folke/tokyonight.nvim',
         priority = 1000,
         config = function()
-            vim.cmd("colorscheme tokyonight")
+            require('core.colorscheme')
         end,
     },
     -- FILE EXPLORER
-    'nvim-tree/nvim-tree.lua',
+    {
+        'nvim-tree/nvim-tree.lua',
+    },
     -- LUALINE
-    'nvim-lualine/lualine.nvim',
+    {
+        'nvim-lualine/lualine.nvim',
+    },
 
 
 
