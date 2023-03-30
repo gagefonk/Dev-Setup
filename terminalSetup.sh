@@ -155,7 +155,7 @@ git config --global core.excludesfile ~/.gitignore_global
 
 # CONFIG FILES
 echo "Installing configuration files..."
-curl https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
+curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 
 # SYMLINKS
 echo "Creating symlink for .p10k.zsh"
