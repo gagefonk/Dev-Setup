@@ -23,4 +23,4 @@ mkdir -p ~/.config/nvim
 
 # INSTALL NVIM
 echo "Installing nvim files..."
-curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz --strip=2 Dev-Setup-master/.config/nvim -C ~/.config/
+curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
