@@ -8,49 +8,52 @@ local plugins = {
         end,
     },
     -- FILE EXPLORER
-    {
-        'nvim-tree/nvim-tree.lua',
-    },
+    -- {
+    --     'nvim-tree/nvim-tree.lua',
+    --     config = function()
+    --         require('plugins.nvim-tree')
+    --     end,
+    -- },
     -- LUALINE
     {
         'nvim-lualine/lualine.nvim',
+        config = function()
+            require('plugins.lualine')
+        end,
     },
-
-
-
-    -- -- TREE SITTER
-    -- 'nvim-treesitter/nvim-treesitter',
-    -- 'nvim-tree/nvim-web-devicons',
-    -- -- FILE EXPLORER
-    -- 'nvim-tree/nvim-tree.lua',
-    -- -- LUALINE
-    -- 'nvim-lualine/lualine.nvim',
-    -- -- TELESCOPE
-    -- {
-    --     'nvim-telescope/telescope.nvim',
-    --     branch = '0.1.x',
-    --     dependencies = { {'nvim-lua/plenary.nvim'} }
-    -- },
-    -- -- AUTO COMPLETION
-    -- 'hrsh7th/nvim-cmp',
-    -- 'hrsh7th/cmp-nvim-lsp',
-    -- -- SNIPPETS
-    -- 'L3MON4D3/LuaSnip',
-    -- 'saadparwaiz1/cmp_luasnip',
-    -- 'rafamadriz/friendly-snippets',
-    -- -- LSP SERVERS
-    -- 'williamboman/mason.nvim',
-    -- 'williamboman/mason-lspconfig.nvim',
-    -- -- LSP CONFIG
-    -- 'neovim/nvim-lspconfig',
-    -- 'RRethy/vim-illuminate',
-    -- -- LINT & FORMAT
-    -- 'jose-elias-alvarez/null-ls.nvim',
-    -- 'jayp0521/mason-null-ls.nvim',
-    -- 'lukas-reineke/indent-blankline.nvim',
-    -- -- BUFFERS
-    -- 'akinsho/bufferline.nvim',
-    -- 'moll/vim-bbye',
+    -- TREE SITTER
+    {
+        'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('plugins.treesitter')
+        end,
+    },
+    {
+        'nvim-tree/nvim-web-devicons',
+    },
+    -- TELESCOPE
+    {
+        'nvim-telescope/telescope.nvim',
+        branch = '0.1.x',
+        dependencies = { {'nvim-lua/plenary.nvim'} },
+        config = function()
+            require('plugins.telescope')
+        end,
+    },
+    -- WHICH KEY
+    {
+        'folke/which-key.nvim',
+        config = function()
+            require('plugins.whichkey')
+        end,
+    },
+    -- GITSIGNS
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('plugins.gitsigns')
+        end,
+    },
 
 }
 
