@@ -1,6 +1,10 @@
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
-local config = {
+return {
+  'nvim-tree/nvim-tree.lua',
+  cmd = 'NvimTree',
+  keys = {
+    { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = "NvimTree" }
+  },
+  config = {
   update_focused_file = {
     enable = true,
     update_cwd = true,
@@ -48,19 +52,11 @@ local config = {
     side = "left",
     mappings = {
       list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb "edit" },
-        { key = "h", cb = tree_cb "close_node" },
-        { key = "v", cb = tree_cb "vsplit" },
+        { key = { "l", "<CR>", "o" }, cb = nvim_tree_config.nvim_tree_callback "edit" },
+        { key = "h", cb = nvim_tree_config.nvim_tree_callback "close_node" },
+        { key = "v", cb = nvim_tree_config.nvim_tree_callback "vsplit" },
       },
     },
   },
-}
-
-return {
-  'nvim-tree/nvim-tree.lua',
-  cmd = 'NvimTree',
-  keys = {
-
-  },
-  config = config,
+},
 }
