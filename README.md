@@ -7,5 +7,5 @@ bash <( curl -s https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/term
 ```
 Run this command to only install NVIM setup:
 ```
-bash <( curl -s https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/terminalSetup.sh )
+bash <( curl -s https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/nvimSetup.sh )
 ```
