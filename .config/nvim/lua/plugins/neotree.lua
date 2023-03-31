@@ -7,6 +7,7 @@ return {
         'nvim-tree/nvim-web-devicons',
         'MunifTanjim/nui.nvim',
     },
+    name = 'Neo-Tree',
     config = {
         filesystem = {
             follow_current_file = true,

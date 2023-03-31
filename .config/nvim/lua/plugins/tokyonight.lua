@@ -41,8 +41,7 @@ return {
         end,
     },
     config = function(_, opts)
-        local colorscheme = require('colorscheme')
-        colorscheme.setup(opts)
+        require('tokyonight').setup(opts)
 
         vim.cmd('colorscheme tokyonight-storm')
     end,
