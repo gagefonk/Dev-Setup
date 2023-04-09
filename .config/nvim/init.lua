@@ -1,1 +1,2 @@
-require('core.lazy')
+require('core')
+require('plugin-loader')

@@ -65,6 +65,8 @@ node
 typescript
 python
 python3
+go
+deno
 tmux
 neovim
 ripgrep
@@ -95,6 +97,7 @@ rectangle
 visual-studio-code
 spotify
 discord
+docker
 )
 
 echo "Installing casks..."
@@ -113,6 +116,8 @@ done
 # FONTS
 FONTS=(
 font-hack-nerd-font
+font-sauce-code-pro-nerd-font
+font-jetbrains-mono-nerd-font
 )
 
 brew tap homebrew/cask-fonts

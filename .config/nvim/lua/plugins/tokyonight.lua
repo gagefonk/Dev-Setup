@@ -1,48 +1,29 @@
 return {
-    'folke/tokyonight',
+    "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {
-        style = "storm",
+        style = "night",
         transparent = true,
+        terminal_colors = true,
         styles = {
-          sidebars = "transparent",
-          floats = "transparent",
+            -- Value is any valid attr-list value for `:help nvim_set_hl`
+            comments = { italic = true },
+            keywords = { italic = false },
+            functions = {},
+            variables = {},
+            sidebars = "transparent",
+            floats = "transparent",
         },
         on_highlights = function(hl, c)
-          local prompt = "#2d3149"
-          hl.TelescopeNormal = {
-            bg = c.bg_dark,
-            fg = c.fg_dark,
-          }
-          hl.TelescopeBorder = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopePromptNormal = {
-            bg = prompt,
-          }
-          hl.TelescopePromptBorder = {
-            bg = prompt,
-            fg = prompt,
-          }
-          hl.TelescopePromptTitle = {
-            bg = prompt,
-            fg = prompt,
-          }
-          hl.TelescopePreviewTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopeResultsTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
+            hl.CursorLineNr = { fg = c.orange, bold = true }
+            hl.LineNr = { fg = c.orange, bold = true }
+            hl.LineNrAbove = { fg = c.fg_gutter }
+            hl.LineNrBelow = { fg = c.fg_gutter }
         end,
     },
     config = function(_, opts)
         require('tokyonight').setup(opts)
-
-        vim.cmd('colorscheme tokyonight-storm')
+        vim.cmd("colorscheme tokyonight")
     end,
 }

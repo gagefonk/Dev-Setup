@@ -9,8 +9,11 @@ echo "Setting up NVIM"
 # CONFIG DIRECTORIES
 echo "Configuring directories..."
 
-echo "Removing ~/.config/nvim"
-rm -rf ~/.config/nvim
+nvimpath = ~/.config/nvim
+if [ -d "$nvimpath" ]; then
+    echo "Creating backup of $nvimpath"
+    mv -f ~/.config/nvim ~/.config/nvim.bak
+fi
 
 echo "Removing ~/.local/share/nvim"
 rm -rf ~/.local/share/nvim

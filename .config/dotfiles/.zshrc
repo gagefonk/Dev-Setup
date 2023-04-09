@@ -108,6 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim="nvim"
 alias ls="ls -a"
+alias k="kubectl"
 alias tmux="tmux -f ~/.config/dotfiles/tmux.conf"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
