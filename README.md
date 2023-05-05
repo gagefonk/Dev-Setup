@@ -1,7 +1,7 @@
 # Dev-Setup
 Dev Env scripts and associated .dotfiles
 
-*Disclaimer: Do not run scripts blindly over the internet. These are configured/tailored to suit my needs. I am not responsible for any unintended effects or consequences of you running these on your machine.
+*Disclaimer: Do not run scripts blindly over the internet. These are configured/tailored to fit my needs. I am not responsible for any unintended effects or consequences of you running these on your machine.
 
 Run this command in terminal to install full dev env:
 ```
