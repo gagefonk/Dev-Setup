@@ -70,10 +70,15 @@ deno
 tmux
 neovim
 ripgrep
+fd
 rust
 make
 zsh-syntax-highlighting
 zsh-autosuggestions
+fsouza/prettierd/prettierd
+stylua
+cmake
+make
 )
 
 echo "Installing packages..."

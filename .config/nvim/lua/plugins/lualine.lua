@@ -1,58 +1,74 @@
-return {
-  "edr3x/lualine.nvim",
-  -- 'nvim-lualine/lualine.nvim',
-  config = function()
-      local lspStatus = {
-          function()
-              local msg = "No LSP detected"
-              local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-              local clients = vim.lsp.get_active_clients()
-              if next(clients) == nil then
-                  return msg
-              end
-              for _, client in ipairs(clients) do
-                  local filetypes = client.config.filetypes
-                  if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                      return client.name
-                  end
-              end
-              return msg
-          end,
-          --icon = "",
-          color = { fg = "#d3d3d3" },
-      }
-
-      local buffer = {
-          "buffers",
-          mode = 0,
-          show_filename_only = true,
-          show_modified_status = true,
-          hide_filename_extension = false,
-          symbols = { alternate_file = "" },
-          buffers_color = {
-              active = { fg = "#d3d3d3" },
-              inactive = { fg = "#414141" },
-          },
-      }
-
-      require("lualine").setup({
-          options = {
-              icons_enabled = true,
-              theme = "tokyonight",
-              component_separators = { left = "", right = "" },
-              section_separators = { left = "", right = "" },
-              disabled_filetypes = { "alpha", "dashboard", "lazy" },
-              always_divide_middle = true,
-              globalstatus = true,
-          },
-          sections = {
-              lualine_a = { "mode" },
-              lualine_b = { "branch" },
-              lualine_c = { buffer },
-              lualine_x = { "diff", "diagnostics" },
-              lualine_y = { lspStatus, "filetype" },
-              lualine_z = { "progress" },
-          },
-      })
-  end,
+local M = {
+    'nvim-lualine/lualine.nvim',
+    enabled = true,
+    lazy = false,
+    event = { 'BufReadPost', 'BufNewFile' },
 }
+
+M.opts = {
+  options = {
+    theme = 'auto', --'gruvbox-material',
+    icons_enabled = true,
+    section_separators = '',
+    component_separators = '',
+    disabled_filetypes = {
+      statusline = {
+        'help',
+        'startify',
+        'dashboard',
+        'neo-tree',
+        'packer',
+        'neogitstatus',
+        'NvimTree',
+        'Trouble',
+        'alpha',
+        'lir',
+        'Outline',
+        'spectre_panel',
+        'toggleterm',
+        'qf',
+      },
+      winbar = {},
+    },
+  },
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch' },
+    lualine_c = {
+      -- 'filename',
+      {
+        'filetype',
+        icon_only = true,
+        separator = '',
+        padding = {
+          left = 1, right = 0 }
+      },
+      { 'filename', path = 1, symbols = { modified = '  ', readonly = '',
+        unnamed = '' } },
+      { 'diagnostics', sources = { 'nvim_lsp' }, symbols = { error = ' ', warn = ' ', info = ' ' } },
+    },
+    lualine_x = { 'encoding' },
+    lualine_y = { 'progress' },
+    lualine_z = {
+      function()
+        return ' ' .. os.date('%R')
+      end,
+    },
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = { 'filename' },
+    lualine_x = { 'location' },
+    lualine_y = {},
+    lualine_z = {},
+  },
+  tabline = {},
+  extensions = { 'neo-tree', 'lazy' },
+}
+
+M.config = function(_, opts)
+    require 'lualine'.setup(opts)
+end
+
+return M

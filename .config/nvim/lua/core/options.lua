@@ -1,128 +1,49 @@
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
-
--- local opt = vim.opt
-
--- opt.autowrite = true -- Enable auto write
--- opt.clipboard = "unnamedplus" -- Sync with system clipboard
--- opt.completeopt = "menu,menuone,noselect"
--- opt.conceallevel = 3 -- Hide * markup for bold and italic
--- opt.confirm = true -- Confirm to save changes before exiting modified buffer
--- opt.cursorline = true -- Enable highlighting of the current line
--- opt.expandtab = true -- Use spaces instead of tabs
--- opt.formatoptions = "jcroqlnt" -- tcqj
--- opt.grepformat = "%f:%l:%c:%m"
--- opt.grepprg = "rg --vimgrep"
--- opt.ignorecase = true -- Ignore case
--- opt.inccommand = "nosplit" -- preview incremental substitute
--- opt.laststatus = 0
--- opt.list = true -- Show some invisible characters (tabs...
--- opt.mouse = "a" -- Enable mouse mode
--- opt.number = true -- Print line number
--- opt.pumblend = 10 -- Popup blend
--- opt.pumheight = 10 -- Maximum number of entries in a popup
--- opt.relativenumber = true -- Relative line numbers
--- opt.scrolloff = 4 -- Lines of context
--- opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
--- opt.shiftround = true -- Round indent
--- opt.shiftwidth = 2 -- Size of an indent
--- opt.shortmess:append { W = true, I = true, c = true }
--- opt.showmode = false -- Dont show mode since we have a statusline
--- opt.sidescrolloff = 8 -- Columns of context
--- opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
--- opt.smartcase = true -- Don't ignore case with capitals
--- opt.smartindent = true -- Insert indents automatically
--- opt.spelllang = { "en" }
--- opt.splitbelow = true -- Put new windows below current
--- opt.splitright = true -- Put new windows right of current
--- opt.tabstop = 2 -- Number of spaces tabs count for
--- opt.termguicolors = true -- True color support
--- opt.timeoutlen = 300
--- opt.undofile = true
--- opt.undolevels = 10000
--- opt.updatetime = 200 -- Save swap file and trigger CursorHold
--- opt.wildmode = "longest:full,full" -- Command-line completion mode
--- opt.winminwidth = 5 -- Minimum window width
--- opt.wrap = false -- Disable line wrap
-
--- if vim.fn.has("nvim-0.9.0") == 1 then
---   opt.splitkeep = "screen"
---   opt.shortmess:append { C = true }
--- end
-
--- -- Fix markdown indentation settings
--- vim.g.markdown_recommended_style = 0
-
-vim.opt.viewoptions:remove("curdir")             -- disable saving current directory with views
-vim.opt.shortmess:append({ s = true, I = true }) -- disable startup message
-vim.opt.shortmess:append 'Ac'
-vim.opt.backspace:append({ "nostop" })           -- Don't stop backspace at insert
-if vim.fn.has("nvim-0.9") == 1 then
-  vim.opt.diffopt:append("linematch:60")         -- enable linematch diff algorithm
-end
+vim.g.mapleader = ' '                        -- Leader
+vim.g.maplocalleader = ' '
 
 local options = {
-  opt = {
-    breakindent = true,                                        -- Wrap indent to match  line start
-    clipboard = "unnamedplus",                                 -- Connection to the system clipboard
-    cmdheight = 0,                                             -- hide command line unless needed
-    completeopt = { "menuone", "noselect" },                   -- Options for insert mode completion
-    copyindent = true,                                         -- Copy the previous indentation on autoindenting
-    cursorline = true,                                         -- Highlight the text line of the cursor
-    expandtab = true,                                          -- Enable the use of space in tab
-    fileencoding = "utf-8",                                    -- File content encoding for the buffer
-    fillchars = { eob = " " },                                 -- Disable `~` on nonexistent lines
-    foldenable = true,                                         -- enable fold for nvim-ufo
-    foldlevel = 99,                                            -- set high foldlevel for nvim-ufo
-    foldlevelstart = 99,                                       -- start with all code unfolded
-    foldcolumn = vim.fn.has("nvim-0.9") == 1 and "1" or nil,   -- show foldcolumn in nvim 0.9
-    history = 100,                                             -- Number of commands to remember in a history table
-    ignorecase = true,                                         -- Case insensitive searching
-    infercase = true,                                          -- Infer cases in keyword completion
-    laststatus = 3,                                            -- globalstatus
-    linebreak = true,                                          -- Wrap lines at 'breakat'
-    mouse = "a",                                               -- Enable mouse support
-    number = true,                                             -- Show numberline
-    preserveindent = true,                                     -- Preserve indent structure as much as possible
-    pumheight = 10,                                            -- Height of the pop up menu
-    relativenumber = true,                                     -- Show relative numberline
-    scrolloff = 8,                                             -- Number of lines to keep above and below the cursor
-    shiftwidth = 2,                                            -- Number of space inserted for indentation
-    showmode = false,                                          -- Disable showing modes in command line
-    showtabline = 2,                                           -- always display tabline
-    sidescrolloff = 8,                                         -- Number of columns to keep at the sides of the cursor
-    signcolumn = "yes",                                        -- Always show the sign column
-    smartcase = true,                                          -- Case sensitivie searching
-    smartindent = true,                                        -- Smarter autoindentation
-    splitbelow = true,                                         -- Splitting a new window below the current one
-    splitkeep = vim.fn.has("nvim-0.9") == 1 and "screen" or nil, -- Maintain code view when splitting
-    splitright = true,                                         -- Splitting a new window at the right of the current one
-    tabstop = 2,                                               -- Number of space in a tab
-    termguicolors = true,                                      -- Enable 24-bit RGB color in the TUI
-    timeoutlen = 500,                                          -- Shorten key timeout length a little bit for which-key
-    undofile = true,                                           -- Enable persistent undo
-    updatetime = 300,                                          -- Length of time to wait before triggering the plugin
-    virtualedit = "block",                                     -- allow going past end of line in visual block mode
-    wrap = false,                                              -- Disable wrapping of lines longer than the width of window
-    writebackup = false,                                       -- Disable making a backup before overwriting a file
-  },
-  g = {
-    highlighturl_enabled = true,          -- highlight URLs by default
-    mapleader = " ",                      -- set leader key
-    autoformat_enabled = true,            -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-    codelens_enabled = true,              -- enable or disable automatic codelens refreshing for lsp that support it
-    lsp_handlers_enabled = true,          -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
-    cmp_enabled = true,                   -- enable completion at start
-    autopairs_enabled = true,             -- enable autopairs at start
-    diagnostics_mode = 3,                 -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
-    icons_enabled = true,                 -- disable icons in the UI (disable if no nerd font is available)
-    ui_notifications_enabled = true,      -- disable notifications when toggling UI elements
-  },
-  t = { bufs = vim.api.nvim_list_bufs() }, -- initialize buffers for the current tab
+    incsearch = true,                        -- make search act like search in modern browsers
+    backup = false,                          -- creates a backup file
+    clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
+    cmdheight = 1,                           -- more space in the neovim command line for displaying messages
+    completeopt = { "menuone", "noselect" }, -- mostly just for cmp
+    conceallevel = 0,                        -- so that `` is visible in markdown files
+    fileencoding = "utf-8",                  -- the encoding written to a file
+    hlsearch = true,                         -- highlight all matches on previous search pattern
+    ignorecase = true,                       -- ignore case in search patterns
+    mouse = "a",                             -- allow the mouse to be used in neovim
+    pumheight = 10,                          -- pop up menu height
+    showmode = false,                        -- we don't need to see things like -- INSERT -- anymore
+    showtabline = 0,                         -- always show tabs
+    smartcase = true,                        -- smart case
+    smartindent = true,                      -- make indenting smarter again
+    splitbelow = true,                       -- force all horizontal splits to go below current window
+    splitright = true,                       -- force all vertical splits to go to the right of current window
+    swapfile = false,                        -- creates a swapfile
+    termguicolors = true,                    -- set term gui colors (most terminals support this)
+    timeoutlen = 300,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+    undofile = true,                         -- enable persistent undo
+    updatetime = 100,                        -- faster completion (4000ms default)
+    writebackup = false,                     -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+    expandtab = true,                        -- convert tabs to spaces
+    shiftwidth = 4,                          -- the number of spaces inserted for each indentation
+    tabstop = 4,                             -- insert 2 spaces for a tab
+    cursorline = true,                       -- highlight the current line
+    number = true,                           -- set numbered lines
+    breakindent = true,                      -- wrap lines with indent
+    relativenumber = true,                   -- set relative numbered lines
+    numberwidth = 4,                         -- set number column width to 2 {default 4}
+    signcolumn = "yes",                      -- always show the sign column, otherwise it would shift the text each time
+    wrap = false,                            -- display lines as one long line
+    scrolloff = 8,                           -- Makes sure there are always eight lines of context
+    sidescrolloff = 8,                       -- Makes sure there are always eight lines of context
+    laststatus = 3,                          -- Always display the status line
+    showcmd = false,                         -- Don't show the command in the last line
+    ruler = false,                           -- Don't show the ruler
+    guifont = "JetbrainsMono:h17",           -- the font used in graphical neovim applications
+    title = true,                            -- set the title of window to the value of the titlestring
 }
 
-for scope, table in pairs(options) do
-  for setting, value in pairs(table) do
-    vim[scope][setting] = value
-  end
+for k, v in pairs(options) do
+    vim.opt[k] = v
 end

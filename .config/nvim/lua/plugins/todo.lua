@@ -1,28 +1,58 @@
-return {
+local M = {
     "folke/todo-comments.nvim",
-    keys = {
-        {
-            "tn",
-            function()
-                require("todo-comments").jump_next()
-            end,
-            desc = "next marked comment",
-        },
-        {
-            "tN",
-            function()
-                require("todo-comments").jump_prev()
-            end,
-            desc = "prev marked comment",
-        },
+    enabled = true,
+    dependencies = "nvim-lua/plenary.nvim",
+    cmd = { "TodoTrouble", "TodoTelescope" },
+    event = { "BufReadPost", "BufNewFile" },
+}
+
+M.keys = {
+    { '<leader>Tt', '<cmd>TodoTelescope<cr>', desc = 'Todo' },
+    { '<leader>TT', '<cmd>TodoTelescope keywords=TODO,FIX,FIXME<cr>', desc = 'Todo/Fix/Fixme' },
+    { '<leader>Tx', '<cmd>TodoTrouble<cr>', desc = 'Todo(Trouble)' },
+    { '<leader>TX', '<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr><cr>', desc = 'Todo/Fix/Fixme(Trouble)' },
+    }
+
+M.opts = {
+    keywords = {
+        FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
+        TODO = { icon = " ", color = "info" },
+        HACK = { icon = " ", color = "warning" },
+        WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+        PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+        NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+        TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
     },
-    opts = {
-        keywords = {
-            FIX = { icon = " ", color = "#FF2D00", alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "bug" } },
-            TODO = { icon = " ", color = "#FF8C00", alt = { "todo" } },
-            HACK = { icon = " ", color = "#3498DB", alt = { "myth" } },
-            WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX", "warn" } },
-            NOTE = { icon = " ", color = "#98C379", alt = { "INFO", "note", "info" } },
-        },
+    gui_style = {
+        fg = "NONE",                             -- The gui style to use for the fg highlight group.
+        bg = "BOLD",                             -- The gui style to use for the bg highlight group.
+    },
+    merge_keywords = true,                       -- when true, custom keywords will be merged with the defaults
+    highlight = {
+        multiline = true,                        -- enable multine todo comments
+        multiline_pattern = "^.",                -- lua pattern to match the next multiline from the start of the matched keyword
+        multiline_context = 10,                  -- extra lines that will be re-evaluated when changing a line
+        before = "",                             -- "fg" or "bg" or empty
+        keyword = "wide",                        -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty.
+        after = "fg",                            -- "fg" or "bg" or empty
+        pattern = [[.*<(KEYWORDS)\s*:]],         -- pattern or table of patterns, used for highlighting (vim regex)
+        comments_only = true,                    -- uses treesitter to match keywords in comments only
+        max_line_len = 400,                      -- ignore lines longer than this
+        exclude = {},                            -- list of file types to exclude highlighting
+    },
+    -- list of highlight groups or use the hex color if hl not found as a fallback
+    colors = {
+        error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
+        warning = { "DiagnosticWarn", "WarningMsg", "#FBBF24" },
+        info = { "DiagnosticInfo", "#2563EB" },
+        hint = { "DiagnosticHint", "#10B981" },
+        default = { "Identifier", "#7C3AED" },
+        test = { "Identifier", "#FF00FF" },
     },
 }
+
+M.config = function(_, opts)
+    require 'todo-comments'.setup(opts)
+end
+
+return M

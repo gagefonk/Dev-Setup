@@ -12,4 +12,4 @@ Run this command to only install NVIM setup:
 bash <( curl -s https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/nvimSetup.sh )
 ```
 ## Acknowledgements
-NVIM was mostly copied/modified from [@edr3x](https://github.com/edr3x)
+NVIM was mostly copied/modified from [@adibhanna](https://github.com/adibhanna)
