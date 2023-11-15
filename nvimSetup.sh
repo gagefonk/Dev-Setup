@@ -9,8 +9,13 @@ echo "Setting up NVIM"
 # CONFIG DIRECTORIES
 echo "Configuring directories..."
 
-nvimpath = ~/.config/nvim
+nvimpath=~/.config/nvim
 if [ -d "$nvimpath" ]; then
+    if [ -d ~/.config/nvim.bak ]; then
+        echo "Removing existing nvim.bak directory"
+        rm -rf ~/.config/nvim.bak
+    fi
+    
     echo "Creating backup of $nvimpath"
     mv -f ~/.config/nvim ~/.config/nvim.bak
 fi
@@ -26,4 +31,7 @@ mkdir -p ~/.config/nvim
 
 # INSTALL NVIM
 echo "Installing nvim files..."
-curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
+# curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/nvim
+cp -r  ~/Developer/Dev-Setup/.config/nvim ~/.config/
+#run vim
+nvim
