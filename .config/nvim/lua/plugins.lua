@@ -22,7 +22,7 @@ local plugins = {
 		end,
 	},
 
-	-- autopairplugin
+	-- autopair
 	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
@@ -58,15 +58,32 @@ local plugins = {
 		"craftzdog/solarized-osaka.nvim",
 		priority = 1000,
 		lazy = false,
-		enable = true,
+		enable = false,
 		init = function()
 			vim.cmd.colorscheme("solarized-osaka")
 		end,
-		opts = { transparent = true },
+		opts = { transparent = true, styles = { sidebars = "transparent", floats = "transparent" } },
 		config = function(_, opts)
 			require("solarized-osaka").setup(opts)
 		end,
 	},
+
+	-- tokyo night
+	{
+		"folke/tokyonight.nvim",
+		priority = 1000,
+		lazy = false,
+		enable = true,
+		init = function()
+			vim.cmd.colorscheme("tokyonight")
+		end,
+		opts = require("config.tokyonight"),
+		config = function(_, opts)
+			require("tokyonight").setup(opts)
+		end,
+	},
+
+	-- catpuccin probably
 
 	-- cmp
 	{
@@ -139,6 +156,9 @@ local plugins = {
 				blend = 0,
 			},
 		},
+		config = function(_, opts)
+			require("fidget").setup(opts)
+		end,
 	},
 
 	-- flash
@@ -150,7 +170,8 @@ local plugins = {
 	-- gitsigns
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPre", "BufNewFile" },
+		-- event = { "BufReadPre", "BufReadPost", "BufNewFile" },
+		lazy = false,
 		opts = require("config.gitsigns"),
 		config = function(_, opts)
 			require("gitsigns").setup(opts)
@@ -198,19 +219,11 @@ local plugins = {
 		end,
 	},
 
-	-- lualine
-	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
-		config = function()
-			require("config.lualine")
-		end,
-	},
-
 	-- mason
 	{
 		"williamboman/mason.nvim",
 		dependencies = { "williamboman/mason-lspconfig.nvim" },
+		priority = 100,
 		opts = require("config.mason"),
 		config = function(_, opts)
 			local mason = require("mason")
@@ -235,6 +248,12 @@ local plugins = {
 		end,
 	},
 
+	-- neodev
+	{
+		"folke/neodev.nvim",
+		opts = {},
+	},
+
 	-- noice
 	{
 		"folke/noice.nvim",
@@ -253,11 +272,18 @@ local plugins = {
 
 	-- nvim comment
 	{
-		"terrortylor/nvim-comment",
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
 		opts = require("config.comments"),
 		config = function(_, opts)
-			require("nvim_comment").setup(opts)
+			require("mini.comment").setup(opts)
 		end,
+	},
+
+	-- comment string
+	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		lazy = true,
 	},
 
 	-- nvim lint
@@ -348,6 +374,16 @@ local plugins = {
 		end,
 	},
 
+	-- toggle term
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		opts = require("config.toggleterm"),
+		config = function(_, opts)
+			require("toggleterm").setup(opts)
+		end,
+	},
+
 	-- trouble
 	{
 		"folke/trouble.nvim",
@@ -372,6 +408,16 @@ local plugins = {
 			for _, v in pairs(mappings) do
 				wk.register(v.mappings, v.opts)
 			end
+		end,
+	},
+
+	-- lualine
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		opts = require("config.lualine"),
+		config = function(_, opts)
+			require("lualine").setup(opts)
 		end,
 	},
 }

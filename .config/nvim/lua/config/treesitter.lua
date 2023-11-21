@@ -21,7 +21,7 @@ return {
 
 	auto_install = true,
 	sync_install = false,
-	context_commentstring = { enable = true, enable_autocmd = false },
+	context_commentstring = { enable = true },
 
 	highlight = {
 		enable = true,

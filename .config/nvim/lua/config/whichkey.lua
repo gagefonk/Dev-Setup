@@ -6,9 +6,9 @@ return {
 			-- file actions
 			q = {
 				name = "File",
-				q = { ":q<cr>", "Quit" },
-				w = { ":wq<cr>", "Save & Quit" },
-				s = { ":w<cr>", "Save" },
+				q = { ":q!<cr>", "Quit" },
+				w = { ":wq!<cr>", "Save & Quit" },
+				s = { ":w!<cr>", "Save" },
 				f = {
 					function()
 						require("conform").format({ lsp_fallback = true, async = false, timeout_ms = 500 })
@@ -33,7 +33,6 @@ return {
 			f = {
 				name = "Telescope",
 				f = { ":Telescope find_files<cr>", "Files" },
-				m = { ":Telescope marks<cr>", "Marks" },
 				w = { ":Telescope live_grep<cr>", "Word" },
 				t = { ":TodoTelescope<cr>", "Todo" },
 				n = { ':lua require("telescope").extensions.notify.notify()<cr>', "Notifications" },
@@ -95,6 +94,28 @@ return {
 				o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
 				b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
 				c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+				d = { "<cmd>Gitsigns diffthis<cr>", "Git Diff" },
+			},
+
+			-- terminal
+			["\\"] = {
+				name = "Terminal",
+				h = { "<cmd>ToggleTerm direction=horizontal<cr>", "Horizontal" },
+				v = { "<cmd>ToggleTerm direction=vertical size=100 <cr>", "Vertical" },
+				f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
+			},
+
+			-- splits
+			s = {
+				name = "split",
+				s = { ":split<cr>", "Horizontal" },
+				v = { ":vsplit<cr>", "Vertical" },
+			},
+
+			-- search and replace
+			r = {
+				name = "Replace",
+				r = { ":%s/\\<<c-r><c-w>\\>/", "Replace under cursor" },
 			},
 		},
 	},
@@ -104,8 +125,6 @@ return {
 		mappings = {
 			["<Tab>"] = { ":BufferLineCycleNext<cr>", "Buffer Next" },
 			["<S-Tab>"] = { ":BufferLineCyclePrev<cr>", "Buffer Prev" },
-			["<S-h>"] = { ":bprev<cr>", "Buffer Prev" },
-			["<S-l>"] = { ":bnext<cr>", "Buffer Next" },
 		},
 	},
 	-- flash

@@ -75,7 +75,6 @@ rust
 make
 zsh-syntax-highlighting
 zsh-autosuggestions
-fsouza/prettierd/prettierd
 stylua
 cmake
 make
@@ -120,8 +119,6 @@ done
 
 # FONTS
 FONTS=(
-font-hack-nerd-font
-font-sauce-code-pro-nerd-font
 font-jetbrains-mono-nerd-font
 )
 
@@ -138,13 +135,13 @@ do
   fi
 done
 
-# Configure NPM for global
-echo "Configuring npm..."
-if [! -f ~/.npm-global ]; then
-  mkdir ~/.npm-global
-  npm config set prefix '~/.npm-global'
-  NPM_CONFIG_PREFIX=~/.npm-global
-fi
+# CLEANUP BREW
+echo "Cleaning up cellar"
+brew cleanup
+
+# NPM PACKAGES
+echo "Installing some npm packages"
+npm i -g prettier typescript javascript-typescript-langserver
 
 # GIT IGNORE
 echo "Removing .gitignore_global"
@@ -177,8 +174,3 @@ ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 # Import iterm settings
 echo "Importing iterm configuration"
 defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
-
-#NVIM
-#echo "Setting up NVIM..."
-#nvim -c "luafile ~/.config/nvim/lua/scripts/packer-mason.lua"
-# echo "Installation complete, please close terminal/iterm2 and relaunch iterm"

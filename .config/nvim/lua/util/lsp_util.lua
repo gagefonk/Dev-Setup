@@ -101,7 +101,7 @@ M.on_attach = function(client, bufnr)
 	keymap.set("n", "K", vim.lsp.buf.hover, opts)
 	-- restart
 	opts.desc = "Restart LSP"
-	keymap.set("n", "<leader>rs", ":LspRestart<cr>", opts)
+	keymap.set("n", "<leader>qr", ":LspRestart<cr>", opts)
 end
 
 M.icons = {

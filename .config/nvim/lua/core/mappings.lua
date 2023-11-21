@@ -20,10 +20,5 @@ map("n", "<C-a>", "gg<S-v>G", opts)
 -- increment/decrement
 map("n", "+", "<C-a>", opts)
 map("n", "-", "<C-x>", opts)
--- TROUBLE
--- lsp ref
-map("n", "gR", function()
-	require("trouble").toggle("lsp_references")
-end, opts)
 
 -- SEE ADDTL KEYMAPS IN WHICHKEY CONFIG
