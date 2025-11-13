@@ -13,8 +13,11 @@ echo "Begining Machine Setup..."
 # CONFIG DIRECTORIES
 echo "Configuring directories..."
 
-echo "Removing ~/.config"
-rm -rf ~/.config
+if -d ~/.config
+then
+    echo "Moving .config to .config.old"
+    mv ~/.config ~/.config.old
+fi
 
 echo "Removing ~/.local/share/nvim"
 rm -rf ~/.local/share/nvim
@@ -22,15 +25,8 @@ rm -rf ~/.local/share/nvim
 echo "Removing ~/.cache/nvim"
 rm -rf ~/.cache/nvim
 
-echo "Removing ~/.p10k.zsh"
-rm -f ~/.p10k.zsh
-
 echo "Creating ~/.config/nvim"
 mkdir -p ~/.config/nvim
-
-# CONFIG FILES
-echo "Creating placeholder .p10k.zsh files for symlinks..."
-touch ~/.p10k.zsh
 
 # HOMEBREW
 if ! command -v brew &> /dev/null
@@ -41,21 +37,6 @@ then
     eval $(/opt/homebrew/bin/brew shellenv)
 else
     echo "Homebrew is already installed."
-fi
-
-# OHMYZSH
-if [ ! -d ~/.oh-my-zsh ]; then
-  echo "Installing OHMYZSH..."
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-else
-    echo "OHMYZSH already installed."
-fi
-
-# P10k THEME
-if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-else
-    echo "P10k theme already installed."
 fi
 
 # PACKAGES
@@ -96,12 +77,15 @@ done
 # CASKS
 CASKS=(
 google-chrome
-iterm2
 rectangle
 visual-studio-code
 spotify
 discord
+slack
 docker
+zen
+obsidian
+ghostty
 )
 
 echo "Installing casks..."
@@ -164,13 +148,13 @@ git config --global core.excludesfile ~/.gitignore_global
 echo "Installing configuration files..."
 curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 
-# SYMLINKS
-echo "Creating symlink for .p10k.zsh"
-ln -sf ~/.config/dotfiles/.p10k.zsh ~/.p10k.zsh
-
+# CREATE SIMLINKS
 echo "Creating symlink for .zshrc"
 ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
-# Import iterm settings
-echo "Importing iterm configuration"
-defaults import com.googlecode.iterm2 ~/.config/iterm2/com.googlecode.iterm2.plist
+echo "Creating symlink for starship"
+ln -sf ~/.config/dotfiles/starship.toml ~/.config/starship.toml
+
+echo "Creating symlink for ghostty"
+ln -sf ~/.config/dotfiles/ghostty/ ~/.config/ghostty/
+

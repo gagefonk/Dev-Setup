@@ -1,0 +1,72 @@
+format = """
+$time\
+$directory\
+$git_branch\
+$git_state\
+$line_break\
+$character
+"""
+
+right_format = """
+$git_commit\
+$git_state\
+$git_metrics\
+$swift\
+$rust\
+$nodejs\
+$kubernetes\
+$python\
+$battery
+"""
+
+command_timeout = 1000
+
+[time]
+disabled = false
+time_format = '%T %Z'
+format = '[$time]($style) '
+
+[directory]
+style = '#3399FF bold'
+
+[git_branch]
+style = '#a37acc bold'
+format = '[$symbol$branch(:$remote_branch)]($style) '
+
+[git_metrics]
+format = '([+$added]($added_style) )([-$deleted]($deleted_style) ) '
+disabled = false
+
+[rust]
+format = '[$symbol($version)]($style) '
+
+[swift]
+format = '[$symbol($version)]($style) '
+
+[kubernetes]
+format = '[⛵ ($cluster) ]($style) '
+
+[nodejs]
+format = '[$symbol($version)]($style) '
+
+[python]
+format = '[$symbol($virtualenv)($version)]($style) '
+
+[battery]
+format = '[$percentage $symbol]($style)'
+
+[[battery.display]]
+threshold = 100
+style = 'bold green'
+
+[[battery.display]]
+threshold = 80
+style = 'bold purple'
+
+[[battery.display]]
+threshold = 30
+style = 'bold yellow'
+
+[[battery.display]]
+threshold = 10
+style = 'bold red'
