@@ -19,14 +19,15 @@ then
     mv ~/.config ~/.config.old
 fi
 
+echo "Creating ~/.config/nvim"
+mkdir -p ~/.config/nvim
+
 echo "Removing ~/.local/share/nvim"
 rm -rf ~/.local/share/nvim
 
 echo "Removing ~/.cache/nvim"
 rm -rf ~/.cache/nvim
 
-echo "Creating ~/.config/nvim"
-mkdir -p ~/.config/nvim
 
 # HOMEBREW
 if ! command -v brew &> /dev/null
@@ -158,3 +159,8 @@ ln -sf ~/.config/dotfiles/starship.toml ~/.config/starship.toml
 echo "Creating symlink for ghostty"
 ln -sf ~/.config/dotfiles/ghostty/ ~/.config/ghostty/
 
+echo "Creating symlink for nvim"
+ln -sf ~/.config/dotfiles/nvim/ ~/.config/nvim/
+
+# SETUP NVIM
+nvim --headless -c 'Lazy sync' -c 'quitall'
