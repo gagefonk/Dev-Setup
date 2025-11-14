@@ -2,32 +2,38 @@
 #!/bin/bash
 set -e
 
-echo "Testing Neovim config installation..."
+echo "Setting up Neovim config..."
 
-NVIM_DIR="$HOME/.config/nvim"
-DOTFILES="$HOME/.config/dotfiles"
+CONFIG_DIR="$HOME/.config"
+DOTFILES_DIR="$CONFIG_DIR/dotfiles"
+NVIM_SOURCE="$DOTFILES_DIR/nvim"
+NVIM_TARGET="$CONFIG_DIR/nvim"
 REPO_URL="https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master"
 
-# Clean any previous tmp
-rm -rf "$DOTFILES_TMP"
+# Ensure parent directories exist
+mkdir -p "$DOTFILES_DIR"
 
-# Remove existing nvim config
-if [ -d "$NVIM_DIR" ]; then
-    echo "Removing existing ~/.config/nvim"
-    rm -rf "$NVIM_DIR"
+# Remove existing nvim folder in dotfiles (if any)
+if [ -d "$NVIM_SOURCE" ]; then
+    echo "Removing existing $NVIM_SOURCE"
+    rm -rf "$NVIM_SOURCE"
 fi
 
-# Download repo (only extracting .config/dotfiles/nvim)
+# Download nvim folder from your dotfiles repo
 echo "Downloading nvim config..."
-mkdir -p "$DOTFILES_TMP"
-curl -L "$REPO_URL" | tar -xz -C "$DOTFILES_TMP" --strip=3 Dev-Setup-master/.config/dotfiles/nvim
+curl -L "$REPO_URL" | tar -xz -C "$DOTFILES_DIR" --strip=3 Dev-Setup-master/.config/dotfiles/nvim
+
+# Remove existing target symlink/folder
+if [ -e "$NVIM_TARGET" ] || [ -L "$NVIM_TARGET" ]; then
+    rm -rf "$NVIM_TARGET"
+fi
 
 # Create symlink
-echo "Creating symlink ~/.config/nvim -> ~/.config/tmp_nvim_download/nvim"
-ln -s "$DOTFILES_TMP/nvim" "$NVIM_DIR"
+echo "Creating symlink $NVIM_TARGET -> $NVIM_SOURCE"
+ln -s "$NVIM_SOURCE" "$NVIM_TARGET"
 
 # Run Neovim headless to sync plugins
 echo "Running Neovim headless to sync plugins..."
 nvim --headless -c 'Lazy sync' -c 'quitall'
 
-echo "Neovim config setup and plugin sync complete!"
+echo "Neovim config setup complete!"
