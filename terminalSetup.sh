@@ -87,6 +87,7 @@ docker
 zen
 obsidian
 ghostty
+font-jetbrains-mono-nerd-font
 )
 
 echo "Installing casks..."
@@ -99,24 +100,6 @@ do
     # Install the cask
     echo "Installing $cask..."
     brew install --cask "$cask"
-  fi
-done
-
-# FONTS
-FONTS=(
-font-jetbrains-mono-nerd-font
-)
-
-brew tap homebrew/cask-fonts
-for font in "${FONTS[@]}"
-do
-  # Check if the cask is already installed
-  if brew cask info "$font" >/dev/null 2>&1; then
-    echo "$font already installed."
-  else
-    # Install the cask
-    echo "Installing $font..."
-    brew install --cask "$font"
   fi
 done
 
