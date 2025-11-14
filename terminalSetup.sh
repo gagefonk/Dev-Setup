@@ -110,10 +110,6 @@ done
 echo "Cleaning up cellar"
 brew cleanup
 
-# NPM PACKAGES
-echo "Installing some npm packages"
-npm i -g prettier typescript javascript-typescript-langserver
-
 # GIT IGNORE
 echo "Removing .gitignore_global"
 if [ -f ~/.gitignore_global ]; then
