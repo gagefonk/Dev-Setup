@@ -161,6 +161,3 @@ ln -sf ~/.config/dotfiles/ghostty ~/.config/ghostty
 
 echo "SYMLINK ~/.config/nvim/ -> ~/.config/dotfiles/nvim/"
 ln -sf ~/.config/dotfiles/nvim ~/.config/nvim
-
-# SETUP NVIM
-nvim --headless -c 'Lazy sync' -c 'quitall'
