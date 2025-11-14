@@ -16,7 +16,7 @@ echo "Configuring directories..."
 if [ -d ~/.config ];
 then
     echo "Moving .config to .config.old"
-    mv ~/.config ~/.config.old
+    mv -f ~/.config ~/.config.old
 fi
 
 echo "Creating .config/"
