@@ -38,7 +38,8 @@ ln -s "$NVIM_SOURCE" "$NVIM_TARGET"
 # Run Neovim headless to sync plugins
 if command -v nvim >/dev/null 2>&1; then
     echo "Running Neovim headless to sync plugins..."
-    nvim -c 'Lazy sync' -c 'quitall'
+    # nvim -c 'Lazy sync' -c 'quitall'
+    nvim -c 'autocmd User LazyDone quitall' -c 'Lazy sync'
 else
     echo "Neovim not installed, skipping Lazy.nvim sync."
 fi
