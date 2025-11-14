@@ -2,7 +2,7 @@
 #!/bin/bash
 set -e
 
-echo "Setting up Neovim config..."
+echo "Testing Neovim config installation..."
 
 CONFIG_DIR="$HOME/.config"
 DOTFILES_DIR="$CONFIG_DIR/dotfiles"
@@ -10,7 +10,10 @@ NVIM_SOURCE="$DOTFILES_DIR/nvim"
 NVIM_TARGET="$CONFIG_DIR/nvim"
 REPO_URL="https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master"
 
-# Ensure parent directories exist
+# Ensure ~/.config exists
+mkdir -p "$CONFIG_DIR"
+
+# Ensure parent directories for dotfiles exist
 mkdir -p "$DOTFILES_DIR"
 
 # Remove existing nvim folder in dotfiles (if any)
@@ -33,7 +36,11 @@ echo "Creating symlink $NVIM_TARGET -> $NVIM_SOURCE"
 ln -s "$NVIM_SOURCE" "$NVIM_TARGET"
 
 # Run Neovim headless to sync plugins
-echo "Running Neovim headless to sync plugins..."
-nvim --headless -c 'Lazy sync' -c 'quitall'
+if command -v nvim >/dev/null 2>&1; then
+    echo "Running Neovim headless to sync plugins..."
+    nvim --headless -c 'Lazy sync' -c 'quitall'
+else
+    echo "Neovim not installed, skipping Lazy.nvim sync."
+fi
 
 echo "Neovim config setup complete!"
