@@ -13,8 +13,7 @@ echo "Begining Machine Setup..."
 # CONFIG DIRECTORIES
 echo "Configuring directories..."
 
-if [ -d ~/.config ];
-then
+if [ -d ~/.config ]; then
     echo "Moving .config to .config.old"
     mv -f ~/.config ~/.config.old
 fi
@@ -33,8 +32,7 @@ rm -rf ~/.cache/nvim
 
 
 # HOMEBREW
-if ! command -v brew &> /dev/null
-then
+if ! command -v brew &> /dev/null; then
     echo "Installing Homebrew"
     echo "$USER_PASSWORD" | NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/$USER/.zprofile
@@ -131,6 +129,11 @@ git config --global core.excludesfile ~/.gitignore_global
 # CONFIG FILES
 echo "Installing configuration files..."
 curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
+
+echo "Managing .zshrc file"
+if [ -f ~/.zshrc ]; then
+    rm .zshrc
+fi
 
 # CREATE SIMLINKS
 echo "SYMLINK ~/.zshrc -> ~/.config/dotfiles/.zshrc"
