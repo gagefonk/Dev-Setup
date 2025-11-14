@@ -14,8 +14,8 @@ echo "Begining Machine Setup..."
 echo "Configuring directories..."
 
 if [ -d ~/.config ]; then
-    echo "Moving .config to .config.old"
-    mv -rf ~/.config ~/.config.old
+    echo "Removing ~/.config"
+    rm -rf ~/.config
 fi
 
 echo "Creating .config/"
