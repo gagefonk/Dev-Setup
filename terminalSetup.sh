@@ -133,13 +133,17 @@ curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -
 
 # CREATE SIMLINKS
 echo "SYMLINK ~/.zshrc -> ~/.config/dotfiles/.zshrc"
-ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
+ln -s ~/.config/dotfiles/.zshrc ~/.zshrc
 
 echo "SYMLINK ~/.config/starship.toml -> ~/.config/dotfiles/starship.toml"
-ln -sf ~/.config/dotfiles/starship.toml ~/.config/starship.toml
+ln -s ~/.config/dotfiles/starship.toml ~/.config/starship.toml
 
 echo "SYMLINK ~/.config/ghostty/ -> ~/.config/dotfiles/ghostty"
-ln -sf ~/.config/dotfiles/ghostty ~/.config/ghostty
+ln -s ~/.config/dotfiles/ghostty ~/.config/ghostty
 
 echo "SYMLINK ~/.config/nvim/ -> ~/.config/dotfiles/nvim/"
-ln -sf ~/.config/dotfiles/nvim ~/.config/nvim
+ln -s ~/.config/dotfiles/nvim ~/.config/nvim
+
+echo "#################################################################################################################################################"
+echo "############################################################ Setup Complete #####################################################################"
+echo "#################################################################################################################################################"
