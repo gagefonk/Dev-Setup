@@ -63,6 +63,7 @@ zsh-autosuggestions
 stylua
 cmake
 make
+starship
 )
 
 echo "Installing packages..."
