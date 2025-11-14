@@ -19,6 +19,9 @@ then
     mv ~/.config ~/.config.old
 fi
 
+echo "Creating .config/"
+mkdir -p ~/.config
+
 echo "Creating ~/.config/nvim"
 mkdir -p ~/.config/nvim
 
