@@ -10,3 +10,9 @@ Run this command in terminal to install full dev env:
 ```
 bash <( curl -s https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/terminalSetup.sh )
 ```
+
+Run this command in terminal to install nvim only:
+
+```
+bash <( curl -s https://raw.githubusercontent.com/gagefonk/Dev-Setup/master/nvimsetup.sh )
+```
