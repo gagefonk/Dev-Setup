@@ -150,17 +150,17 @@ echo "Installing configuration files..."
 curl -L https://codeload.github.com/gagefonk/Dev-Setup/tar.gz/master | tar -xz -C ~/.config/ --strip=2 Dev-Setup-master/.config/
 
 # CREATE SIMLINKS
-echo "Creating symlink for .zshrc"
+echo "SYMLINK ~/.zshrc -> ~/.config/dotfiles/.zshrc"
 ln -sf ~/.config/dotfiles/.zshrc ~/.zshrc
 
-echo "Creating symlink for starship"
+echo "SYMLINK ~/.config/starship.toml -> ~/.config/dotfiles/starship.toml"
 ln -sf ~/.config/dotfiles/starship.toml ~/.config/starship.toml
 
-echo "Creating symlink for ghostty"
-ln -sf ~/.config/dotfiles/ghostty/ ~/.config/ghostty/
+echo "SYMLINK ~/.config/ghostty/ -> ~/.config/dotfiles/ghostty"
+ln -sf ~/.config/dotfiles/ghostty ~/.config/ghostty
 
-echo "Creating symlink for nvim"
-ln -sf ~/.config/dotfiles/nvim/ ~/.config/nvim/
+echo "SYMLINK ~/.config/nvim/ -> ~/.config/dotfiles/nvim/"
+ln -sf ~/.config/dotfiles/nvim ~/.config/nvim
 
 # SETUP NVIM
 nvim --headless -c 'Lazy sync' -c 'quitall'
