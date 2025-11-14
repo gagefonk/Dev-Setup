@@ -13,7 +13,7 @@ echo "Begining Machine Setup..."
 # CONFIG DIRECTORIES
 echo "Configuring directories..."
 
-if -d ~/.config
+if [ -d ~/.config ];
 then
     echo "Moving .config to .config.old"
     mv ~/.config ~/.config.old
